@@ -1,0 +1,27 @@
+<h1 mat-dialog-title style="text-align: center;">Information</h1>
+<form (ngSubmit)="inviteStudent()" style="text-align: center;">
+  <div mat-dialog-content *ngFor="let Item of resgetinformation" style="text-align:left;">
+    <!-- <p>  {{Item}}</p> -->
+    <div *ngIf="state; else elseBlock">
+
+      <div class="row ">
+        <div class="column">
+          <p> {{Item.ad_en_first_name}} {{Item.ad_en_last_name}} {{Item.ad_th_first_name}} {{Item.ad_th_last_name}}</p>
+
+        </div>
+        <div class="" style="text-align: center;">
+          <button type="submit" mat-raised-button color="primary" cdkFocusInitial 
+            [mat-dialog-close]="Item">Invite</button>
+        </div>
+
+      </div>
+
+
+    </div>
+    <ng-template #elseBlock>Not Found Advisor</ng-template>
+  </div>
+  <div mat-dialog-actions class="box">
+
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+  </div>
+</form>

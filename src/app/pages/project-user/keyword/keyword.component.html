@@ -1,0 +1,75 @@
+<head>
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+  
+  </head>
+  
+  <mat-card class=" mx-auto max-w-7xl border-x container p-6" id="headcon">
+    <div *ngFor="let Item of studentData" class="">
+      <b>
+        <p class="mt-10" style="font-size: 40px;">{{ Item.idstudent }} {{ Item.en_first_name }} {{ Item.en_last_name }}
+        </p>
+      </b><br>
+      <div class="form-row">
+        <div style="font-size: 22px;" class="form-column ">
+          <b><a class="title">{{ Item.th_first_name }} {{ Item.th_last_name }}</a></b>
+        </div>
+        <div class="form-column ">
+          <div class="name" *ngFor="let Item of emailData">
+            <b><a>Email: {{ Item.email }}</a></b>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-column ">
+          <div class="name" *ngFor="let Item of phoneData">
+            <b><a>Tel: {{ Item.phone }}</a></b>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <mat-card-content>
+      <b><a >keyword: </a> <a [routerLink]="['/project-user/', idst]" class="blue-underlined"> All</a></b>
+      <div class="keywords-container">
+        <ng-container *ngFor="let Item of keywordsData; let i = index">
+          <span *ngIf="i % 7 === 0 && i !== 0"><br></span> <!-- Add line break every 3 keywords -->
+          <a [routerLink]="['/keyword', idst, Item.keyword]" class="blue-underlined tab">{{ Item.keyword }}({{ Item.count }})</a>
+          <span *ngIf="i !== keywordsData.length - 1 && (i + 1) % 7 !== 0"> ,  </span> <!-- Add comma if not last keyword in line -->
+        </ng-container>
+      </div>
+    </mat-card-content>  
+  </mat-card>
+  
+  
+  
+  <mat-card class="mt-5 mx-auto max-w-7xl border-x container p-6">
+    <b>
+      <p style="font-size: 30px;">Project</p>
+    </b><br>
+  
+    <div class="container-fluid row mb-1" *ngFor="let Item of projectData">
+      <mat-card class="col-md-4 mb-3">
+        <mat-card-header>
+          <mat-card-title><a [routerLink]="['/project/', Item.idProject]" class="underline"
+              style="font-size: 26px; color: rgb(1, 1, 170);">{{ Item.en_title }}
+            </a></mat-card-title>
+        </mat-card-header><br>
+        <mat-card-content>
+          <p>
+            <a href="#" class="blue-underlined" style="font-size: 14px;">{{ Item.url }} </a>
+          </p>
+          <p>{{ Item.category }}</p>
+          <p>Year: {{ Item.year | date: 'MM-dd-yyyy' }}</p>
+        </mat-card-content>
+  
+        <div *ngFor="let Items of projectstudentData">
+          <mat-card-content>
+            <p style="font-size: 16px;">
+              <a class="blue-underlined"> {{ Items.idstudent }} {{Items.en_first_name}}</a>
+            </p>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    </div>
+  
+  </mat-card>

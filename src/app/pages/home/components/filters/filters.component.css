@@ -1,0 +1,41 @@
+  
+  /* filters.component.css */
+
+  .filters-container {
+    padding: 1px; /* ระยะห่างของเนื้อหาภายใน div */
+  }
+  .text-sm {
+    font-size: 14px; /* ปรับขนาดตัวอักษรตามที่ต้องการ */
+  }
+  
+  .lah {
+    width: 200px;
+  }
+
+  .mat-expansion-panel-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  button.mat-button {
+    flex-grow: 1;
+    margin-bottom: 8px; /* ระยะขอบระหว่างปุ่ม */
+    padding: 12px; /* ปรับขนาดของปุ่ม */
+    background-color: #2196F3; /* สีพื้นหลัง */
+    color: white; /* สีข้อความ */
+    border: none; /* ลบเส้นขอบ */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px; /* มุมโค้งขอบ */
+  }
+  
+  button.mat-button:hover {
+    background-color: #0e5ba9; /* สีพื้นหลังเมื่อ hover */
+  }
+  
+  .dash {
+    font-weight: bold;
+  }

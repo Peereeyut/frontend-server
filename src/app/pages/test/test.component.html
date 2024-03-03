@@ -1,0 +1,457 @@
+<!-- <div class="container">
+  <header class="text-center">Project</header>
+  <form [formGroup]="EditForm" action="#">
+      <div *ngIf="showForm1" class="form first">
+          <div class="details-project">
+              <span class="title">Project Details</span>
+              <div class="fields" >
+                  <div class="input-field">
+                      <label>Project Name (English)</label>
+                      <input type="text" formControlName="en_title"
+                          placeholder="Enter project name" required>
+                  </div>
+                  <div class="input-field">
+                      <label>Project Name (ภาษาไทย)</label>
+                      <input type="text" formControlName="th_title"
+                          placeholder="Enter project name" required>
+                  </div>
+                  <div class="input-field">
+                      <label>Link URL</label>
+                      <input type="text" formControlName="url"
+                          placeholder="Enter project url" required>
+                  </div>
+                  <div class="input-field">
+                      <label>Major</label>
+                      <select required formControlName="category">
+                          <option value="Computer Engineering">Computer Engineering</option>
+                          <option value="Electrical Engineering">Electrical Engineering</option>
+                          <option value="Mechanical Engineering">Mechanical Engineering</option>
+                          <option value="Civil Engineering">Civil Engineering</option>
+                          <option value="Chemical Engineering">Chemical Engineering</option>
+                          <option value="Industrial Engineering">Industrial Engineering</option>
+                          <option value="Materials Engineering">Materials Engineering</option>
+                          <option value="Environmental Engineering">Environmental Engineering</option>
+                      </select>
+                  </div>
+                  <div class="input-field">
+                      <label>Date</label>
+                      <input type="date" formControlName="year"
+                          placeholder="Select date" required>
+                  </div>
+              </div>
+              <br>
+
+              <div class="details Student">
+                  <span class="title">Student</span>
+                  <div class="fields">
+                      <div class="input-field">
+                          <label>ID Student</label>
+                          <input type="text" formControlName="idstudent" placeholder="Enter id student" required>
+                      </div>
+                      <div class="input-field">
+                          <label>First Name</label>
+                          <input type="text" formControlName="en_first_name" placeholder="Enter First Name" required>
+                      </div>
+                      <div class="input-field">
+                          <label>Last Name</label>
+                          <input type="text" formControlName="en_last_name" placeholder="Enter Last Name" required>
+                      </div>
+                      <div class="input-field">
+                          <label>First Name (ภาษาไทย)</label>
+                          <input type="text" formControlName="th_first_name" placeholder="Enter First Name (ภาษาไทย)" required>
+                      </div>
+                      <div class="input-field">
+                          <label>Last Name (ภาษาไทย)</label>
+                          <input type="text" formControlName="th_last_name" placeholder="Enter Last Name (ภาษาไทย)" required>
+                      </div>
+                  </div>
+              </div><br>
+
+              <div class="details Advisor">
+                  <span class="title">Invite</span>
+                  <div class="fields">
+                      <div class="input-field">
+                          <label>ID student</label>
+                          <input type="text" formControlName="idstudent" placeholder="Enter id student" required>
+                      </div>
+                      <mat-card class="clickable invite">
+                          <a>Invite</a>
+                      </mat-card>
+                  </div>
+                  <div class="fields">
+                      <div class="input-field">
+                          <label>ID Advisor</label>
+                          <input type="text" formControlName="idadvisor" placeholder="Enter id advisor" required>
+                      </div>
+                      <mat-card class="clickable invite">
+                          <a>Invite</a>
+                      </mat-card>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div *ngIf="showForm2">
+          <span class="title">Abstract</span><br>
+
+          <div class="details Abstract">
+              <span class="titleAB">Abstract (English)</span>
+              <div class="fields">
+                  <div class="input-abstract">
+                      <textarea type="text" formControlName="en_absteact" placeholder="Enter abstract (English)" required></textarea>
+                  </div>
+              </div>
+          </div>
+
+          <div class="details Abstract">
+              <span class="titleAB">Abstract (ภาษาไทย)</span>
+              <div class="fields">
+                  <div class="input-abstract">
+                      <textarea type="text" formControlName="th_abstract" placeholder="Enter abstract (ภาษาไทย)" required></textarea>
+                  </div>
+              </div>
+          </div>
+
+          <div class="details keyword">
+              <span class="titleAB">Keyword</span>
+
+              <div class="fields ">
+                  <div class="input-field">
+                      <input type="text" formControlName="keyword" required>
+                  </div>
+                  <mat-card class="clickable" (click)="submitKeyword()">
+                      <a>Add keyword</a>
+                  </mat-card>
+              </div>
+          </div>
+
+          <div class="submitted-words-container">
+              <mat-card *ngFor="let submittedWord of submittedWords" class="submitted-word">
+                  <div class="centered-content m-1">
+                      <a class="flex-container small-icon">
+                          <a>{{ submittedWord }} </a>
+                          <b><a (click)="removeSubmittedWord(submittedWord)" [ngClass]="{ 'clickable': isClickable }">
+                                  × </a></b>
+                      </a>
+                  </div>
+              </mat-card>
+          </div>
+
+      </div>
+
+      <div *ngIf="showForm1" class="buttons">
+          <button (click)="onCancel()" class="Cancel">
+              <span class="btnText">Cancel</span>
+              <i class="uil uil-navigator"></i>
+          </button>
+          <button (click)="goToNextForm()" class="nextBtn">
+              <span class="btnText">Next</span>
+              <i class="uil uil-navigator"></i>
+          </button>
+      </div>
+
+      <div *ngIf="showForm2" class="buttons">
+          <button (click)="goToPreviousForm()" class="nextBtn">
+              <span class="btnText">Back</span>
+              <i class="uil uil-navigator"></i>
+          </button>
+
+          <button class="sumbit">
+              <span class="btnText">Submit</span>
+              <i class="uil uil-navigator"></i>
+          </button>
+      </div>
+  </form>
+</div> -->
+
+<div class="container">
+    <header class="text-center">Project</header>
+    <form>
+        <div *ngIf="showForm1" class="form-group">
+            <div class="details-project" *ngFor="let data of projectData">
+                <span class="title">Project Details</span>
+                <div class="fields">
+                    <div class="input-field">
+                        <label>Project Name (English)</label>
+                        <input type="text" [(ngModel)]="data.en_title" [ngModelOptions]="{standalone: true}"
+                            class="form-control" id="en_title" placeholder="Enter project name" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Project Name (ภาษาไทย)</label>
+                        <input type="text" [(ngModel)]="data.th_title" [ngModelOptions]="{standalone: true}"
+                            class="form-control" id="th_title" placeholder="Enter project name" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Link URL</label>
+                        <input type="text" [(ngModel)]="data.url" [ngModelOptions]="{standalone: true}"
+                            class="form-control" id="url" placeholder="Enter project url">
+                    </div>
+                    <div class="input-field">
+                        <label>Major</label>
+                        <select required [(ngModel)]="data.category" [ngModelOptions]="{standalone: true}"
+                            class="form-control" id="category">
+                            <option value="Computer Engineering">Computer Engineering</option>
+                            <option value="Electrical Engineering">Electrical Engineering</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Chemical Engineering">Chemical Engineering</option>
+                            <option value="Industrial Engineering">Industrial Engineering</option>
+                            <option value="Materials Engineering">Materials Engineering</option>
+                            <option value="Environmental Engineering">Environmental Engineering</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label>Date</label>
+                        <input type="date" [(ngModel)]="data.year" [ngModelOptions]="{ standalone: true }"
+                            class="form-control" name="year" placeholder="Select date" required>
+                    </div>
+                </div>
+                <br>
+
+                <div class="details Student">
+                    <span class="title">Student</span>
+                    <div class="fields" *ngFor="let data of studentData">
+                        <div class="input-field">
+                            <label>ID Student</label>
+                            <input type="text" [(ngModel)]="data.idstudent" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="idstudent" placeholder="Enter id student" required>
+                        </div>
+                        <div class="input-field">
+                            <label>First Name</label>
+                            <input type="text" [(ngModel)]="data.en_first_name" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="en_first_name" placeholder="Enter First Name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" [(ngModel)]="data.en_last_name" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="en_last_name" placeholder="Enter Last Name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>First Name (ภาษาไทย)</label>
+                            <input type="text" [(ngModel)]="data.th_first_name" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="th_first_name" placeholder="Enter First Name (ภาษาไทย)"
+                                required>
+                        </div>
+                        <div class="input-field">
+                            <label>Last Name (ภาษาไทย)</label>
+                            <input type="text" [(ngModel)]="data.th_last_name" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="th_last_name" placeholder="Enter Last Name (ภาษาไทย)" required>
+                        </div>
+                        <div class="input-field">
+                            <label>description</label>
+                            <input type="text" [(ngModel)]="data.descript" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="descript" placeholder="Enter description" required>
+                        </div>
+                    </div>
+                </div><br>
+                <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                <div class="details Student">
+                    <span class="title">Student team</span>
+                    <div class="fields" *ngFor="let student of datateam">
+                        <div class="input-field">
+                            <label>ID Student</label>
+                            <input type="text" class="form-control" readonly value="{{student[0].idstudent}}">
+                        </div>
+                        <div class="input-field">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" readonly value="{{student[0].en_first_name}}">
+                        </div>
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" readonly value="{{student[0].en_last_name}}">
+                        </div>
+                        <div class="input-field">
+                            <label>First Name (ภาษาไทย)</label>
+                            <input type="text" class="form-control" readonly value="{{student[0].th_first_name}}">
+                        </div>
+                        <div class="input-field">
+                            <label>Last Name (ภาษาไทย)</label>
+                            <input type="text" class="form-control" readonly value="{{student[0].th_last_name}}">
+                        </div>
+                    </div>
+                </div><br>
+                <!-- ////////////////////////////////////////////////////////////////////// -->
+                <div class="details Advisor">
+                    <span class="title">Advisor team</span>
+                    <div class="fields" *ngFor="let advisor of datateamAd">
+                        <div class="input-field">
+                            <label>ID Advisor</label>
+                            <input type="text" class="form-control" value="{{advisor.idadvisor}}" readonly>
+                        </div>
+                        <div class="input-field">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" value="{{advisor.ad_en_first_name}}" readonly>
+                        </div>
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" value="{{advisor.ad_en_last_name}}" readonly>
+                        </div>
+                        <div class="input-field">
+                            <label>First Name (ภาษาไทย)</label>
+                            <input type="text" class="form-control" value="{{advisor.ad_th_first_name}}" readonly>
+                        </div>
+                        <div class="input-field">
+                            <label>Last Name (ภาษาไทย)</label>
+                            <input type="text" class="form-control" value="{{advisor.ad_th_last_name}}" readonly>
+                        </div>
+                        <div class="input-field">
+                            <label>Role</label>
+                            <input type="text" class="form-control" value="{{advisor.description_role
+                            }}" readonly>
+                        </div>
+                    </div>
+                </div><br>
+                <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                <div class="details Advisor">
+                    <span class="title">Invite</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>ID student</label>
+                            <input type="text" [(ngModel)]="idstinvite" [ngModelOptions]="{standalone: true}"
+                                id="idstinvite" placeholder="Enter id student">
+                        </div>
+                        <mat-card class="clickable invite">
+                            <a (click)="inviteStudent(idstinvite)">Invite</a>
+                        </mat-card>
+                    </div>
+                    <div>
+                        <div class="submitted-words-container">
+                            <mat-card *ngFor="let submitted of invitedstudent" class="submitted-word">
+                                <div class="centered-content m-1">
+                                    <a class="flex-container small-icon">
+                                        <a>{{ submitted.student_idstudent }} </a>
+                                        <b><a (click)="removeSubmittedInviteStudent(submitted.student_idstudent,submitted.Project_idProject)"
+                                                [ngClass]="{ 'clickable': isClickable }"> ×
+                                            </a></b>
+                                    </a>
+                                </div>
+                            </mat-card>
+                            <mat-card *ngFor="let submitted of submittedinviteStudent" class="submitted-word">
+                                <div class="centered-content m-1">
+                                    <a class="flex-container small-icon">
+                                        <a>{{ submitted.student_idstudent }} </a>
+                                        <b><a (click)="removeSubmittedInviteStudent(submitted.student_idstudent,submitted.Project_idProject)"
+                                                [ngClass]="{ 'clickable': isClickable }"> ×
+                                            </a></b>
+                                    </a>
+                                </div>
+                            </mat-card>
+                        </div>
+                    </div><br>
+
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>ID Advisor</label>
+                            <input type="text" [(ngModel)]="idadinvite" [ngModelOptions]="{standalone: true}"
+                                id="idadinvite" placeholder="Enter id advisor">
+                        </div>
+                        <mat-card class="clickable invite">
+                            <a (click)="inviteAdvisor(idadinvite)">Invite</a>
+                        </mat-card>
+                    </div>
+                    <div>
+                        <div class="submitted-words-container">
+                            <mat-card *ngFor="let submitted of invitedadvisor" class="submitted-word">
+                                <div class="centered-content m-1">
+                                    <a class="flex-container small-icon">
+                                        <a>{{ submitted.advisor_idadvisor }} </a>
+                                        <b><a (click)="removeSubmittedInviteAdvisor(submitted.advisor_idadvisor,submitted.Project_idProject)"
+                                                [ngClass]="{ 'clickable': isClickable }"> ×
+                                            </a></b>
+                                    </a>
+                                </div>
+                            </mat-card>
+                            <mat-card *ngFor="let submitted of submittedinviteAdvisor" class="submitted-word">
+                                <div class="centered-content m-1">
+                                    <a class="flex-container small-icon">
+                                        <a>{{ submitted.advisor_idadvisor }} </a>
+                                        <b><a (click)="removeSubmittedInviteAdvisor(submitted.advisor_idadvisor,submitted.Project_idProject)"
+                                                [ngClass]="{ 'clickable': isClickable }"> ×
+                                            </a></b>
+                                    </a>
+                                </div>
+                            </mat-card>
+                        </div>
+                    </div><br>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngIf="showForm2">
+            <span class="title">Abstract</span><br>
+            <div *ngFor="let data of projectABData">
+                <div class="details Abstract">
+                    <span class="titleAB">Abstract (English)</span>
+                    <div class="fields">
+                        <div class="input-abstract">
+                            <textarea type="text" [(ngModel)]="data.en_abstract" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="en_abstract" placeholder="Enter abstract (English)"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details Abstract">
+                    <span class="titleAB">Abstract (ภาษาไทย)</span>
+                    <div class="fields">
+                        <div class="input-abstract">
+                            <textarea type="text" [(ngModel)]="data.th_abstract" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="th_abstract" placeholder="Enter abstract (ภาษาไทย)"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details keyword">
+                <span class="titleAB">Keyword</span>
+
+                <div class="fields ">
+                    <div class="input-field">
+                        <input type="text" [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}" id="keyword"
+                            placeholder="keyword">
+                    </div>
+                    <mat-card class="clickable" (click)="submitKeyword()">
+                        <a>Add keyword</a>
+                    </mat-card>
+                </div>
+            </div>
+
+            <div class="submitted-words-container">
+                <mat-card *ngFor="let submittedWord of submittedWords" class="submitted-word">
+                    <div class="centered-content m-1">
+                        <a class="flex-container small-icon">
+                            <a>{{ submittedWord }} </a>
+                            <b><a (click)="removeSubmittedWord(submittedWord.idkey, submittedWord.keywords)"
+                                    [ngClass]="{ 'clickable': isClickable }"> × </a></b>
+                        </a>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+
+
+        <div *ngIf="showForm1" class="buttons">
+            <button (click)="onCancel()" class="Cancel">
+                <span class="btnText">Cancel</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+            <button (click)="goToNextForm()" class="nextBtn">
+                <span class="btnText">Next</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+        </div>
+
+        <div *ngIf="showForm2" class="buttons">
+            <button (click)="goToPreviousForm()" class="nextBtn">
+                <span class="btnText">Back</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+
+            <button (click)="UpdateRecords()" class="sumbit">
+                <span class="btnText">Submit</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+<mat-toolbar class="navbar max-w mx-auto border-x justify-between">
+  <a routerLink="/home">NU Engineering Project Database System</a>
+  <div class="spacer"></div>
+  <div class="menu">
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="#">Services</a></li>
+
+      <!-- <li><a href="/login">Sign In</a></li> -->
+
+      <ng-template [ngIf]="userProfile" [ngIfElse]="loggedOut">
+        <button mat-button [matMenuTriggerFor]="setting">
+          <h2>{{userProfile.name}} </h2>
+          <mat-icon>account_box</mat-icon>
+        </button>
+        <mat-menu #setting="matMenu">
+          <a  mat-menu-item (click)="profile()">profile</a>
+          <a mat-menu-item (click)="handleSignOut()">LogOut</a>
+        </mat-menu>
+      </ng-template>
+      <ng-template #loggedOut>
+        <div id="g_id_onload" data-client_id="740892566726-8nugoo6ubtn7pb0qsatcq0um41p67ah9.apps.googleusercontent.com"
+          data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse" data-itp_support="true">
+        </div>
+
+        <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_black" data-text="signin"
+          data-size="medium" data-logo_alignment="left">
+        </div>
+      </ng-template>
+
+
+    </ul>
+  </div>
+</mat-toolbar>

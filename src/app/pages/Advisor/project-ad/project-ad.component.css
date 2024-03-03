@@ -1,0 +1,8 @@
+.blue-underlined {
+    color: blue;
+    text-decoration: underline;
+  }
+  
+  .keywords-container {
+    white-space: nowrap;
+  }

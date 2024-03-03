@@ -1,0 +1,79 @@
+<div class="container">
+  <header class="text-center">Personal Info</header>
+  <form [formGroup]="projectForm" action="#">
+    <div class="form first">
+      <div class="details-project">
+        <div class="input-field">
+          <!-- <label>{{ userProfile.email }}</label> -->
+        </div><br>
+        <span class="title">Profile Details</span>
+
+        <div class="fields">
+          <div class="input-field">
+            <label>ID Student</label>
+            <input type="text" [(ngModel)]="idstudent" [ngModelOptions]="{standalone: true}" class="form-control"
+              id="idstudent" placeholder="Enter id student" readonly required>
+          </div>
+          <div class="input-field">
+            <label>First Name</label>
+            <input type="text" [(ngModel)]="en_first_name" [ngModelOptions]="{standalone: true}" class="form-control"
+              id="en_first_name" placeholder="Enter First Name" required>
+          </div>
+          <div class="input-field">
+            <label>Last Name</label>
+            <input type="text" [(ngModel)]="en_last_name" [ngModelOptions]="{standalone: true}" class="form-control"
+              id="en_last_name" placeholder="Enter Last Name" required>
+          </div>
+          <div class="input-field">
+            <label>First Name (ภาษาไทย)</label>
+            <input type="text" [(ngModel)]="th_first_name" [ngModelOptions]="{standalone: true}" class="form-control"
+              id="th_first_name" placeholder="Enter First Name (ภาษาไทย)" required>
+          </div>
+          <div class="input-field">
+            <label>Last Name (ภาษาไทย)</label>
+            <input type="text" [(ngModel)]="th_last_name" [ngModelOptions]="{standalone: true}" class="form-control"
+              id="th_last_name" placeholder="Enter Last Name (ภาษาไทย)" required>
+          </div>
+        </div>
+        <div class="fields">
+          <div class="input-field">
+            <label>Phone</label>
+            <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" [(ngModel)]="phone"
+              [ngModelOptions]="{standalone: true}" class="form-control" id="phone" placeholder="Format: 0123456789"
+              required>
+          </div>
+          <mat-card class="clickable AddPhone">
+            <input type="submit" (click)="addPhone()" value="Add">
+          </mat-card>
+        </div>
+
+        <div *ngFor="let phoneNumber of phonelist">
+          <div class="input-field">
+            <input type="text"  [value]="phoneNumber.phone" class="form-control" readonly>
+            <b><a class="clickable" (click)="removePhone(phoneNumber)"> ×</a></b>
+          </div>
+        </div>
+
+        <div *ngFor="let phoneNumber of phoneData">
+          <div class="input-field">
+            <input type="text"  [value]="phoneNumber.phone" class="form-control" readonly>
+            <b><a class="clickable" (click)="removePhoneAd(phoneNumber)"> ×</a></b>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button (click)="onCancel()" class="Cancel">
+        <span class="btnText">Cancel</span>
+        <i class="uil uil-navigator"></i>
+      </button>
+      <button (click)="register_user()" class="sumbit">
+        <span class="btnText">Submit</span>
+        <i class="uil uil-navigator"></i>
+      </button>
+
+    </div>
+  </form>
+</div>

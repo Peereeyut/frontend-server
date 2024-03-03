@@ -1,0 +1,85 @@
+<mat-drawer-container class="min-h-full mx-auto max-w-7xl border-x">
+    <mat-drawer-content class="p-6">
+        <mat-card *ngFor="let studentItem of projectData" class="col-md-4 mb-3">
+            <mat-card-header class="mt-3">
+                <mat-card-title style="font-size: 40px; color: rgb(1, 1, 170);">{{ studentItem.en_title
+                    }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-header>
+                <mat-card-title style="font-size: 18px; color: rgb(0, 0, 0);">( {{ studentItem.th_title
+                    }} )</mat-card-title>
+            </mat-card-header><br>
+            <mat-card-content>
+                <p style="font-size: 14px;">Link: <a href="{{ studentItem.url }}" target="_blank"
+                        style="text-decoration: underline; color: blue;">{{ studentItem.url }}</a></p>
+                <p style="font-size: 16px; color: rgb(0, 0, 255);">{{ studentItem.category }}</p>
+                <p style="font-size: 14px;">Year: {{ studentItem.year | date: 'MM-dd-yyyy' }}</p>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="mb-4">
+            <div class="flex justify-between">
+
+                <div class="flex items-center">
+                    <button mat-button (click)="Abstract()">Abstract</button>
+                    <button mat-button (click)="Authors()">Authors</button>
+                    <button mat-button (click)="Keywords()">Keywords</button>
+                </div>
+            </div>
+        </mat-card>
+
+
+        <mat-card class="col-md-4 mb-3">
+            <mat-card-content *ngIf="showForm1">
+                
+                <p style="font-size: 24px; font-weight: bold;">Abstract (English) :</p>
+                <mat-card-content *ngFor="let Item of projectABData">
+                    <div>
+                        <p class="description" style="font-size: 18px;">{{ Item.en_abstract }}
+                        </p>
+                    </div>
+                </mat-card-content>
+                <p style="font-size: 24px; font-weight: bold;">Abstract (Thai) :</p>
+                <mat-card-content *ngFor="let Item of projectABData">
+                    <div>
+                        <p class="description" style="font-size: 18px;">{{ Item.th_abstract }}
+                        </p>
+                    </div>
+                </mat-card-content>
+            </mat-card-content>
+
+            <mat-card-content *ngIf="showForm2">
+                <p style="font-size: 24px; font-weight: bold;">Authors:</p>
+                <mat-card-content *ngFor="let Item of projectstudentData">
+                    <div>
+                            <a [routerLink]="['/project-user/', Item.idstudent]" class="blue-underlined" style="font-size: 18px;">
+                                {{ Item.idstudent }} {{ Item.en_first_name }} {{ Item.en_last_name }}</a>
+                    </div>
+                </mat-card-content>
+            </mat-card-content>
+
+            <mat-card-content *ngIf="showForm2">
+                <p style="font-size: 24px; font-weight: bold;">Advisor:</p>
+                <mat-card-content *ngFor="let Item of projectAdvisorData">
+                    <div>
+                            <a [routerLink]="['/projectbyad/', Item.idadvisor]" class="blue-underlined" style="font-size: 18px;">
+                                {{ Item.ad_en_first_name }} {{ Item.ad_en_last_name }}</a>
+                    </div>
+                </mat-card-content>
+            </mat-card-content>
+
+            <mat-card-content *ngIf="showForm4">
+                <p style="font-size: 24px; font-weight: bold;">Keywords:</p><br>
+                <mat-card-content *ngFor="let Item of projectKeywordData">
+                            <a href="#" style="font-size: 18px;">
+                                 : {{ Item.keyword }}</a>
+                </mat-card-content>
+
+            </mat-card-content>
+        </mat-card>
+
+
+
+
+    </mat-drawer-content>
+</mat-drawer-container>

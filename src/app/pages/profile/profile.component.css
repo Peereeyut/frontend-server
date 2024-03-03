@@ -1,0 +1,93 @@
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+#headcon {
+  height: max-content;
+  padding: 6px;
+}
+
+.title {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  min-height: 32px;
+  color: #3C4858;
+  font-weight: 800;
+  font-family: "Roboto Slab", "Times New Roman", serif;
+}
+
+.blue-underlined {
+  color: blue;
+  text-decoration: underline;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.avatar img {
+  width: 150px;
+  /* Set the desired width */
+  height: 150px;
+  /* Set the desired height */
+  border-radius: 50%;
+  /* Ensure it's rounded */
+}
+
+mat-card {
+  max-width: 1200px;
+  height: fit-content;
+  min-height: 200px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+  position: relative;
+  overflow: auto;
+  /* เพิ่มการเลื่อนแนวตั้ง */
+}
+
+.data {
+  padding: 2%;
+  height: 100%;
+}
+
+form {
+  display: flex;
+  /* ให้สมบูรณ์แบบแนวนอน */
+  flex-direction: column;
+  /* จัดเรียงข้อมูลแบบคอลัมน์ */
+  font-size: medium;
+  padding: 30px;
+  /* เพิ่มระยะห่างของข้อมูลใน MatCard */
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  /* จัดเรียงแถวให้แสดงฟอร์มซ้าย-ขวา */
+  margin-bottom: 20px;
+  /* ระยะห่างระหว่างแถว */
+}
+
+.form-column {
+  flex: 1;
+  /* ให้แต่ละคอลัมน์ขยายเต็มพื้นที่ */
+  padding: 0 10px;
+  /* ระยะห่างด้านซ้ายและขวาของคอลัมน์ */
+}
+
+.PJ {
+  max-height: max-content;
+}
+
+.text-lg {
+  font-size: 30px;
+  font-weight: bold;
+}
+

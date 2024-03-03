@@ -1,0 +1,96 @@
+<mat-card class="example-card">
+    <h2 class="head-text">NU Engineering</h2>
+    <div class="search">
+        <!-- <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" /> มันerror  -->
+        <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" />
+        <button (click)="onSubmit()" class="search-button">Search</button>
+    </div>
+
+    <mat-card class="custom-card mt-2 text-start" *ngIf="isSearchClicked">
+        <div class="search-results">
+            <div class="centered-content m-1">
+                <h4 class="flex-container small-icon">
+                    <span>{{ searchResultKeyword }} </span> &nbsp;&nbsp;
+                    <b><a href="/home"> × </a></b>
+                </h4>
+            </div>
+        </div>
+    </mat-card>
+</mat-card>
+
+<mat-card class="custom-mat-card">
+    <mat-drawer mode="side" opened class="p-6">
+        <app-filters (categorySelected)="onShowCategory($event)">
+        </app-filters>
+    </mat-drawer>
+    <mat-drawer-container class="min-h-full max-w-7xl border-x">
+        <mat-drawer-content class="p-6">
+
+            <mat-card class="customAl-card mt-1 text-center mb-3" *ngIf="isSearchClicked && noSearchResultsFound">
+                <div class="search-results">
+                    <div class="centered-content mt-3 m-2" style="color: rgb(255, 0, 0);">
+                        <a class="flex-container small-icon">
+                            No search results found for "{{ searchResultKeyword }}"
+                        </a>
+                    </div>
+                </div>
+            </mat-card>
+                <!-- Add sort buttons -->
+                <div class="">
+                    <button mat-button (click)="sortByTitle()">Sort by Title</button>
+                    <button mat-button (click)="sortByDate()">Sort by Date</button>
+                </div>
+
+            <div class="container-fluid row mb-1">
+                <mat-card *ngFor="let StudentItem of getDisplayedStudents()" class="col-md-4 mb-3">
+                    <mat-card-header>
+                        <mat-card-title><a [routerLink]="['/project', StudentItem[0].idProject]" class="underline"
+                                style="font-size: 26px; color: rgb(1, 1, 170);"> <span
+                                    [innerHTML]="highlightSearchText(StudentItem[0].en_title)"></span></a><br>
+                        </mat-card-title>
+                    </mat-card-header><br>
+                    <mat-card-content>
+
+
+                        <div class="row">
+                            <p style="font-size: 16px;">
+                                <span *ngFor="let item of StudentItem[1]; let i = index">
+                                    <a [routerLink]="['/project-user', item.student_idstudent]" class="blue-underlined">
+                                        <span [innerHTML]="highlightSearchText(item.idstudent)"></span>
+                                        <span [innerHTML]="highlightSearchText(item.en_first_name)"></span></a>
+                                    <span *ngIf="i !== StudentItem[1].length - 1"> , </span>
+                                </span>
+                            </p>
+                        </div>
+                        <p>
+                            <a href="{{ StudentItem[0].url }}" class="blue-underlined" style="font-size: 14px;">{{
+                                StudentItem[0].url }}
+                            </a>
+                        </p>
+                        <p><span [innerHTML]="highlightSearchText(StudentItem[0].category)"></span></p>
+                        <p>Year: {{ StudentItem[0].year | date: 'yyyy-MM-dd' }}</p>
+                    </mat-card-content><br>
+                    <mat-card-content>
+                    </mat-card-content>
+                </mat-card>
+
+                <div class="text-center">
+                    <button mat-button color="primary" (click)="previousPage()"
+                        [disabled]="currentPage === 1">Back</button>
+                    <button mat-button color="primary" (click)="nextPage()"
+                        [disabled]="currentPage === totalPages">Next</button>
+                </div>
+            </div>
+
+        </mat-drawer-content>
+    </mat-drawer-container>
+</mat-card>
+
+<script>
+    function highlightSearchText(text) {
+        var query = "{{ searchQuery }}"; // ใช้ Angular interpolation ในการรับค่า searchQuery จาก Angular component
+        return text.replace(new RegExp(query, 'gi'), function (match) {
+            return '<mark>' + match + '</mark>';
+        });
+    }
+</script>

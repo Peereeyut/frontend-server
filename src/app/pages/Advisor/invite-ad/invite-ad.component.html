@@ -1,0 +1,164 @@
+<div class="container">
+    <header class="text-center">Project</header>
+    <form>
+        <div *ngIf="showForm1" class="form-group">
+            <div class="details-project" *ngFor="let data of projectData">
+                <span class="title">Project Details</span>
+                <div class="fields">
+                    <div class="input-field">
+                        <label>Project Name (English)</label>
+                        <input type="text" [(ngModel)]="data.en_title" [ngModelOptions]="{standalone: true}"
+                            class="form-control" id="en_title" placeholder="Enter project name" readonly required>
+                    </div>
+                    <div class="input-field">
+                        <label>Project Name (ภาษาไทย)</label>
+                        <input type="text" [(ngModel)]="data.th_title" [ngModelOptions]="{standalone: true}"
+                            class="form-control" id="th_title" placeholder="Enter project name" readonly required>
+                    </div>
+                    <div class="input-field">
+                        <label>Link URL</label>
+                        <input type="text" [(ngModel)]="data.url" [ngModelOptions]="{standalone: true}"
+                            class="form-control" id="url" placeholder="Enter project url" readonly>
+                    </div>
+                    <div class="input-field">
+                        <label>Major</label>
+                        <select required [(ngModel)]="data.category" [ngModelOptions]="{standalone: true}"
+                            class="form-control" id="category" readonly>
+                            <option value="Computer Engineering">Computer Engineering</option>
+                            <option value="Electrical Engineering">Electrical Engineering</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Chemical Engineering">Chemical Engineering</option>
+                            <option value="Industrial Engineering">Industrial Engineering</option>
+                            <option value="Materials Engineering">Materials Engineering</option>
+                            <option value="Environmental Engineering">Environmental Engineering</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+                <div class="details Student">
+                    <span class="title">Advisor</span>
+                    <div class="fields" *ngFor="let data of advisorData">
+                        <div class="input-field">
+                            <label>ID Advisor</label>
+                            <input type="text" [(ngModel)]="data.idadvisor" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="idadvisor" placeholder="Enter id advisor" readonly required>
+                        </div>
+                        <div class="input-field">
+                            <label>First Name</label>
+                            <input type="text" [(ngModel)]="data.ad_en_first_name" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="ad_en_first_name" placeholder="Enter First Name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" [(ngModel)]="data.ad_en_last_name" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="ad_en_last_name" placeholder="Enter Last Name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>First Name (ภาษาไทย)</label>
+                            <input type="text" [(ngModel)]="data.ad_th_first_name" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="ad_th_first_name" placeholder="Enter First Name (ภาษาไทย)"
+                                required>
+                        </div>
+                        <div class="input-field">
+                            <label>Last Name (ภาษาไทย)</label>
+                            <input type="text" [(ngModel)]="data.ad_th_last_name" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="ad_th_last_name" placeholder="Enter Last Name (ภาษาไทย)"
+                                required>
+                        </div>
+                        <!-- <div class="input-field">
+                            <label>description</label>
+                            <input type="text" [(ngModel)]="data.descript_role" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="descript_role" placeholder="Enter description">
+                        </div> -->
+                        <div class="input-field">
+                            <label>description</label>
+                            <select required [(ngModel)]="iddescript_role" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="descript_role">
+                                <option value="1">Advisor</option>
+                                <option value="2">CoAdvisor</option>
+                            </select>
+                        </div>
+                    </div>
+                </div><br>
+
+            </div>
+        </div>
+
+
+        <div *ngIf="showForm2">
+            <span class="title">Abstract</span><br>
+            <div *ngFor="let data of projectABData">
+                <div class="details Abstract">
+                    <span class="titleAB">Abstract (English)</span>
+                    <div class="fields">
+                        <div class="input-abstract">
+                            <textarea type="text" [(ngModel)]="data.en_abstract" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="en_abstract" placeholder="Enter abstract (English)" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details Abstract">
+                    <span class="titleAB">Abstract (ภาษาไทย)</span>
+                    <div class="fields">
+                        <div class="input-abstract">
+                            <textarea type="text" [(ngModel)]="data.th_abstract" [ngModelOptions]="{standalone: true}"
+                                class="form-control" id="th_abstract" placeholder="Enter abstract (ภาษาไทย)" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details keyword">
+                <span class="titleAB">Keyword</span>
+
+                <div class="fields ">
+                    <div class="input-field">
+                        <input type="text" [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}"
+                            class="form-control" id="keyword" placeholder="keyword" readonly>
+                    </div>
+                    <mat-card class="clickable" (click)="submitKeyword()" readonly>
+                        <a>Add keyword</a>
+                    </mat-card>
+                </div>
+            </div>
+
+            <div class="submitted-words-container">
+                <mat-card *ngFor="let submittedWord of submittedWords" class="submitted-word">
+                    <div class="centered-content m-1">
+                        <a class="flex-container small-icon">
+                            <a>{{ submittedWord }} </a>
+                            <b><a (click)="removeSubmittedWord(submittedWord)" [ngClass]="{ 'clickable': isClickable }">
+                                    × </a></b>
+                        </a>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+
+
+        <div *ngIf="showForm1" class="buttons">
+            <button (click)="onCancel()" class="Cancel">
+                <span class="btnText">Cancel</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+            <button (click)="goToNextForm()" class="nextBtn">
+                <span class="btnText">Next</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+        </div>
+
+        <div *ngIf="showForm2" class="buttons">
+            <button (click)="goToPreviousForm()" class="nextBtn">
+                <span class="btnText">Back</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+
+            <button (click)="save()" class="sumbit">
+                <span class="btnText">Join</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,92 @@
+<mat-card class="container">
+
+  <mat-card class="container text-center" id="headcon">
+    <div class="avatar">
+      <img [src]="userProfile.picture" class="img-raised rounded-circle img-fluid" alt="altprofile">
+    </div>
+    <div class="name">
+
+      <h2 class="title">{{studentData[1].idstudent}} {{studentData[1].en_first_name}} {{studentData[1].en_last_name}}
+      </h2>
+      <p>{{studentData[1].th_first_name}} {{studentData[1].th_last_name}}
+      </p>
+      <!-- <p>ID: {{ userProfile.sub }}</p> -->
+      <div *ngFor="let Item of emailData">
+        <a>email: {{ Item.email }}</a>
+      </div>
+      <div *ngFor="let Item of phoneData">
+        <a href="">tel: {{Item.phone}} </a>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <button mat-button (click)="goToMyProject()">My Project</button>
+      <button mat-button (click)="goToInviteProject()">Invited Project</button>
+      <button mat-button (click)="add(idbyemail)">Add Project</button>
+      <button mat-button (click)="UpdateProfile()">Edit Profile</button>
+    </div>
+
+  </mat-card><br>
+
+  <mat-card class="container data">
+    <!-- My Project -->
+    <div *ngIf="show1">
+      <div class="">
+        <button mat-button (click)="sortByTitle()">Sort by Title</button>
+        <button mat-button (click)="sortByDate()">Sort by Date</button>
+    </div>
+      <div class="container-fluid row mb-1">
+        <mat-card class="col-md-4 mb-3" *ngFor="let Item of projectData">
+          <mat-card-header>
+            <mat-card-title><a [routerLink]="['/project/', Item.idProject]" class="underline"
+                style="font-size: 26px; color: rgb(1, 1, 170);">{{ Item.en_title }}
+              </a></mat-card-title>
+          </mat-card-header><br>
+          <mat-card-content>
+            <p>
+              <a href="{{Item.url}}" class="blue-underlined" style="font-size: 14px;">{{ Item.url }} </a>
+            </p>
+            <p>{{ Item.category }}</p>
+            <p>Year: {{ Item.year | date: 'MM-dd-yyyy' }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary" (click)="EditProject(Item.idProject)">Edit</button>
+            <button mat-button color="warn" (click)="LeaveProject(Item.idProject)">Leave Project</button>
+          </mat-card-actions>
+        </mat-card>
+        <div class="text-center bt-next.back">
+          <button mat-button color="primary" (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
+          <button mat-button color="primary" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+        </div>
+      </div>
+    </div>
+    <!-- Invite Project -->
+    <div *ngIf="show2">
+      <div class="container-fluid row mb-1">
+        <mat-card class="col-md-4 mb-3" *ngFor="let Item of invitestudentData">
+          <mat-card-header>
+            <mat-card-title><a [routerLink]="['/project/', Item.idProject]" class="underline"
+                style="font-size: 26px; color: rgb(1, 1, 170);">{{ Item.en_title }}
+              </a></mat-card-title>
+          </mat-card-header><br>
+          <mat-card-content>
+            <p>
+              <a href="{{Item.url}}" class="blue-underlined" style="font-size: 14px;">{{ Item.url }} </a>
+            </p>
+            <p>{{ Item.category }}</p>
+            <p>Year: {{ Item.year | date: 'MM-dd-yyyy' }}</p>
+          </mat-card-content>
+
+          <div>
+          </div>
+          <mat-card-actions>
+            <button mat-button color="primary" (click)="JoinInvite(Item.idProject)">Join</button>
+            <button mat-button color="warn" (click)="Unjoin(Item.idProject)">cancle</button>
+          </mat-card-actions>
+        </mat-card>
+
+      </div>
+    </div>
+
+
+  </mat-card>
+</mat-card>

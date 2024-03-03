@@ -1,0 +1,55 @@
+<div class="container">
+  <header class="text-center">Personal Info</header>
+  <form [formGroup]="projectForm" action="#">
+    <div class="form first">
+      <div class="details-project">
+        <div class="input-field">
+          <label>{{ userProfile.email }}</label>
+        </div><br>
+        <span class="title">Profile Details</span>
+
+        <div class="fields">
+          <div class="input-field">
+            <label>ID Student</label>
+            <input type="text" [(ngModel)]="iduser" [ngModelOptions]="{standalone: true}" id="iduser"
+              placeholder="Enter id student" required>
+          </div>
+          <div class="input-field">
+            <label>First Name</label>
+            <input type="text" [(ngModel)]="en_first_name" [ngModelOptions]="{standalone: true}" id="en_first_name"
+              placeholder="Enter First Name" required>
+          </div>
+          <div class="input-field">
+            <label>Last Name</label>
+            <input type="text" [(ngModel)]="en_last_name" [ngModelOptions]="{standalone: true}" id="en_last_name"
+              placeholder="Enter Last Name" required>
+          </div>
+          <div class="input-field">
+            <label>First Name (ภาษาไทย)</label>
+            <input type="text" [(ngModel)]="th_first_name" [ngModelOptions]="{standalone: true}" id="th_first_name"
+              placeholder="Enter First Name (ภาษาไทย)" required>
+          </div>
+          <div class="input-field">
+            <label>Last Name (ภาษาไทย)</label>
+            <input type="text" [(ngModel)]="th_last_name" [ngModelOptions]="{standalone: true}" id="th_last_name"
+              placeholder="Enter Last Name (ภาษาไทย)" required>
+          </div>
+          <div class="input-field">
+            <label>Phone</label>
+            <input type="text" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" id="phone" placeholder="Enter Phone" required>
+          </div>
+        </div>
+        <div class="fields">
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button (click)="save()" class="sumbit">
+        <span class="btnText">Submit</span>
+        <i class="uil uil-navigator"></i>
+      </button>
+
+    </div>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+.blue-underlined {
+  color: blue;
+  text-decoration: underline;
+}
+
+.keywords-container {
+  white-space: nowrap;
+}
+
+.tab {
+  tab-size:20; /* for e.g: value = 2*/
+}
