@@ -62,7 +62,6 @@ import { InviteAdComponent } from './pages/Advisor/invite-ad/invite-ad.component
 import { KeywordComponent } from './pages/project-user/keyword/keyword.component';
 import { KeywordAdComponent } from './pages/Advisor/project-ad/keyword-ad/keyword-ad.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { InviteadvisorEditComponent } from './pages/edit-project/inviteadvisor-edit/inviteadvisor-edit.component';
 
 @NgModule({
@@ -133,7 +132,7 @@ import { InviteadvisorEditComponent } from './pages/edit-project/inviteadvisor-e
     SocialLoginModule,
     ToastrModule.forRoot(),
     NgApexchartsModule,
-    CanvasJSAngularChartsModule,
+    
   ],
   providers: [ // Include the GoogleAuthService in the providers array
     {
