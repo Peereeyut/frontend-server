@@ -1,8 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
-import { CanvasJSAngularChartsModule } from "@canvasjs/angular-charts";
-// import {Chart, registerables} from "node_modules/chart.js"
+
 import { ChartComponent } from "ng-apexcharts";
 @Component({
   selector: 'app-dashboard',
