@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-  api = "https://real-sweatsuit-toad.cyclic.app"
+  api = "https://backend-project-neon.vercel.app"
 }
