@@ -20,7 +20,7 @@ export class InvitePopupComponent implements OnInit {
     this.dataadvisor = data.name;
     console.log(this.dataadvisor)
   }
-  api="https://real-sweatsuit-toad.cyclic.app";
+  api="https://backend-project-neon.vercel.app";
   async ngOnInit(): Promise<void> {
     await this.getinformation(this.dataadvisor)
   }
