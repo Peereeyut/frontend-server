@@ -50,7 +50,7 @@ export class ProfileAdComponent implements OnInit {
   advisorData: any[] = [];
   projectData: any[] = [];
   studentmember: any = [];
-  api="https://real-sweatsuit-toad.cyclic.app";
+  api="https://backend-project-neon.vercel.app";
   async ngOnInit(): Promise<any> {
     this.userProfile =await JSON.parse(sessionStorage.getItem("loggedInUser") || "");
     await this.getIdByEmail(this.userProfile.email);
