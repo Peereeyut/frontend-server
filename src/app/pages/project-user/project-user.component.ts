@@ -53,7 +53,7 @@ export class ProjectUserComponent implements OnInit {
   emailData: any[] = [];
   projectData: any[] = [];
   projectstudentData: any[] = [];
-  api = "https://real-sweatsuit-toad.cyclic.app"
+  api = "https://backend-project-neon.vercel.app"
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
