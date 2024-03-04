@@ -17,7 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 
 export class AddProjectComponent implements OnInit {
 
-  api = "https://real-sweatsuit-toad.cyclic.app"
+  api = "https://backend-project-neon.vercel.app"
 
   showForm1: boolean = true;
   showForm2: boolean = false;
