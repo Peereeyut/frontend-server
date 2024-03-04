@@ -281,7 +281,7 @@ export class EditProjectComponent implements OnInit {
 
     if (this.keyword.trim() !== '') {
       let keywordData = {
-        "keyword": this.keyword,
+        "keyword": this.keyword.toLowerCase(),
       };
       console.log(keywordData)
       this.http.post(this.api + "/adProject/keyword/add", keywordData).subscribe(async (Data: any) => {
