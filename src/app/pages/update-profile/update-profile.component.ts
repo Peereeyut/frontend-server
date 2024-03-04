@@ -40,7 +40,7 @@ export class UpdateProfileComponent implements OnInit {
   th_first_name: string = "";
   th_last_name: string = "";
   phone: string = "";
-  api = "https://real-sweatsuit-toad.cyclic.app"
+  api = "https://backend-project-neon.vercel.app"
   constructor(
     private fb: FormBuilder,
     private router: Router,
