@@ -51,7 +51,7 @@ export class ProjectRMComponent {
   projectstudentData: any[] = [];
   projectAdvisorData: any[] = [];
   projectKeywordData: any[] = [];
-  api = "https://real-sweatsuit-toad.cyclic.app"
+  api = "https://backend-project-neon.vercel.app"
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
     // ...
