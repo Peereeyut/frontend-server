@@ -16,7 +16,7 @@ export class EditProjectComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient, private el: ElementRef, private route: ActivatedRoute, private toastr: ToastrService, private dialog: MatDialog,) {
 
   }
-  api = "https://real-sweatsuit-toad.cyclic.app"
+  api = "https://backend-project-neon.vercel.app"
   showForm1: boolean = true;
   showForm2: boolean = false;
   isResultLoaded = false;
