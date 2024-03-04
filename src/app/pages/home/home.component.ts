@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
   searchResultKeyword: string = '';
   noSearchResultsFound: boolean = false;
 
-  api = "https://real-sweatsuit-toad.cyclic.app"
+  api = "https://backend-project-neon.vercel.app"
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
     // this.route.queryParams.subscribe(params => {
     //   this.getAllProject();
