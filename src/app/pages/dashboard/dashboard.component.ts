@@ -9,7 +9,7 @@ import { ChartComponent } from "ng-apexcharts";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  api = "https://real-sweatsuit-toad.cyclic.app"
+  api = "https://backend-project-neon.vercel.app"
   async ngOnInit(): Promise<void> {
     try {
       await this.onCategorySelected('All');
