@@ -260,6 +260,7 @@ export class AddProjectComponent implements OnInit {
       enterAnimationDuration: enteranimation,
       exitAnimationDuration: exitanimation,
       width: '50%',
+      height:"100%",
       data: {
         name: data,
         listadvisor: this.arrayidinviteadvisor,
