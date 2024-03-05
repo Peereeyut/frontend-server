@@ -5,7 +5,7 @@
     height: 10px; /*Should be removed. Only for demonstration*/
   }
 .warpt{
-  height:fit-content,
+  height:fit-content;
   display: flex;  
   flex-wrap: nowwrap;
 }
