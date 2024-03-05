@@ -4,6 +4,10 @@
     padding: 10px;
     height: 10px; /*Should be removed. Only for demonstration*/
   }
+.warpt{
+  display: flex;  
+  flex-wrap: wrap;
+}
   * {
     box-sizing: border-box;
   }
