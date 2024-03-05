@@ -5,8 +5,9 @@
     height: 10px; /*Should be removed. Only for demonstration*/
   }
 .warpt{
+  height:fit-content,
   display: flex;  
-  flex-wrap: wrap;
+  flex-wrap: nowwrap;
 }
   * {
     box-sizing: border-box;
