@@ -5,7 +5,8 @@
     height: 10px; /*Should be removed. Only for demonstration*/
   }
 .warpt{
-  height: max-content;
+  min-height: 100px;
+  max-height: 100%;
 }
   * {
     box-sizing: border-box;
