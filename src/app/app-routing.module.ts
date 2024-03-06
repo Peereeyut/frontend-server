@@ -26,7 +26,7 @@ import { ProjectAdComponent } from './pages/Advisor/project-ad/project-ad.compon
 import { UpdateprofileAdComponent } from './pages/Advisor/updateprofile-ad/updateprofile-ad.component';
 import { KeywordComponent } from './pages/project-user/keyword/keyword.component';
 import { KeywordAdComponent } from './pages/Advisor/project-ad/keyword-ad/keyword-ad.component';
-
+import { ReferenceComponent } from './pages/reference/reference.component';
 
 const routes: Routes = [{
   path: 'home',
@@ -67,6 +67,10 @@ const routes: Routes = [{
 {
   path: 'register',
   component: RegisterComponent,
+},
+{
+  path: 'reference',
+  component: ReferenceComponent,
 },
 {
   path: 'invite/:idstudent/:idProject',
