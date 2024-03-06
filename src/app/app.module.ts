@@ -63,6 +63,7 @@ import { KeywordComponent } from './pages/project-user/keyword/keyword.component
 import { KeywordAdComponent } from './pages/Advisor/project-ad/keyword-ad/keyword-ad.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { InviteadvisorEditComponent } from './pages/edit-project/inviteadvisor-edit/inviteadvisor-edit.component';
+import { ReferenceComponent } from './pages/reference/reference.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,7 @@ import { InviteadvisorEditComponent } from './pages/edit-project/inviteadvisor-e
     KeywordComponent,
     KeywordAdComponent,
     InviteadvisorEditComponent,
- 
+    ReferenceComponent,
     
   ],
   imports: [
