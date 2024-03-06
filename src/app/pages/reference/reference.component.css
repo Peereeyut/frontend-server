@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #666;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .team-member {
+    float: left;
+    width: calc(50% - 20px); /* 3 columns with margins */
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member:hover {
+    transform: translateY(-5px);
+  }
+  
+  .team-member img, .advisor-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  /*  */
+  .advisor-member {
+    width: calc(100% - 20px); /* 3 columns with margins */
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer {
+    width: calc(100% - 20px); /* 3 columns with margins */
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .advisor-member:hover {
+    transform: translateY(-5px);
+  }
+  
+  .advisor-member img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .member-details {
+    padding: 20px;
+  }
+  
+  .safe-circle-container {
+    width: 200px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: url('src/app/img/safe.jpg');
+    background-size: cover; /* กำหนดให้ภาพปรับขนาดเพื่อครอบคลุมพื้นที่ */
+  
+    margin: 0 auto;
+  }
+  
+  .pee-circle-container {
+    width: 200px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: url('src/app/img/pee.jpg');
+    background-size: cover; /* กำหนดให้ภาพปรับขนาดเพื่อครอบคลุมพื้นที่ */
+    background-position: center; /* กำหนดให้ภาพอยู่ตรงกลาง */
+    margin: 0 auto;
+  }
+  
+  .advisor-circle-container {
+    width: 200px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-image: url('src/app/img/Suradet.jpg');
+    background-size: cover; /* กำหนดให้ภาพปรับขนาดเพื่อครอบคลุมพื้นที่ */
+    background-position: center; /* กำหนดให้ภาพอยู่ตรงกลาง */
+    margin: 0 auto;
+    margin-top: 5%;
+  }
+  
+  .circle-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+  
+  }
+  
+  /* Keyframes for animation */
+  @keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .team-member {
+        width: calc(100% - 20px); /* 1 column with margins */
+    }
+    .advisor-member {
+      width: calc(100% - 20px); /* 1 column with margins */
+  }
+  }
+  
+  .blue-underlined {
+    color: blue;
+    text-decoration: underline;
+  }
+  /*  */
+ 
