@@ -205,7 +205,7 @@ export class AddProjectComponent implements OnInit {
   save() {
     if (this.currentStudentID === '') {
       // เช็คว่าฟอร์มถูกต้องหรือไม่
-      const isFormValid = this.en_title && this.th_title && this.year && this.category && this.en_abstract && this.th_abstract;
+      const isFormValid = this.en_title && this.th_title && this.year && this.category ;
 
       if (isFormValid) {
         this.register();
