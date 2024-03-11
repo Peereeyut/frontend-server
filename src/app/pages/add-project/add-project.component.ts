@@ -211,6 +211,7 @@ export class AddProjectComponent implements OnInit {
         this.register();
       } else {
         this.toggleSpecial();
+        this.goToPreviousForm();
         this.toastr.warning('Please fill in all required fields.');
         const firstInvalidControl = this.getFirstInvalidControl();
         if (firstInvalidControl) {
