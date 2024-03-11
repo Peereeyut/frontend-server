@@ -81,7 +81,7 @@ export class AddProjectComponent implements OnInit {
       en_last_name: ['', Validators.required],
       th_first_name: ['',],
       th_last_name: ['',],
-      descript: ['',],
+      descript: ['',Validators.required],
 
       idadvisor: ['', Validators.required],
       ad_en_first_name: ['', Validators.required],
@@ -89,8 +89,8 @@ export class AddProjectComponent implements OnInit {
       ad_th_first_name: ['',],
       ad_th_last_name: ['',],
 
-      en_abstract: ['', Validators.required],
-      th_abstract: ['', Validators.required],
+      en_abstract: [' ', ],
+      th_abstract: [' ', ],
 
       keyword: ['', Validators.required],
     });
