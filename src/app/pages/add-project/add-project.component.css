@@ -258,3 +258,7 @@ textarea[maxlength] {
   .highlight{
     background-color:red;
   }
+
+.error-input {
+  border: 1px solid red; /* Change border color to red */
+}
