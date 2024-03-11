@@ -217,6 +217,7 @@ export class AddProjectComponent implements OnInit {
         }
       }
     } else {
+      toggleSpecial();
       // โค้ดสำหรับการอัปเดต
       //   this.http.post("/addProject/keyword/delete/:").subscribe((Data: any) => {
       //   console.log(Data);
@@ -384,5 +385,9 @@ export class AddProjectComponent implements OnInit {
       this.toastr.warning("Not correct,Please fill Form")
     }
   }
+  isSpecial: boolean = false;
 
+  toggleSpecial() {
+    this.isSpecial = !this.isSpecial;
+  }
 }
