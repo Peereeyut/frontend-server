@@ -254,3 +254,7 @@ textarea[maxlength] {
     padding: 8px;
     margin-top: 20px;
   }
+
+  .highlight{
+    background-color:red;
+  }
