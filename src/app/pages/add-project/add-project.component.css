@@ -265,6 +265,6 @@ textarea[maxlength] {
 }
 
 .special {
-    background-color: yellow;
+    background-color: #FF6565;
     font-weight: bold;
   }

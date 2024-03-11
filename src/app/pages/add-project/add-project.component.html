@@ -7,13 +7,13 @@
         <div class="fields">
           <div class="input-field">
             <label>Project Name (English)</label>
-            <input type="text" [(ngModel)]="en_title" [ngModelOptions]="{standalone: true}" id="en_title"
+            <input type="text" [(ngModel)]="en_title" [ngModelOptions]="{standalone: true}" id="en_title" [class.special]="isSpecial"
               placeholder="Enter project name" required>
   
           </div>
           <div class="input-field">
-            <label>Project Name (ภาษาไทย)</label>
-            <input type="text" [(ngModel)]="th_title" [ngModelOptions]="{standalone: true}" id="th_title"
+            <label >Project Name (ภาษาไทย)</label>
+            <input type="text" [(ngModel)]="th_title" [ngModelOptions]="{standalone: true}" id="th_title" [class.special]="isSpecial"
               placeholder="Enter project name" required>
           
           </div>
@@ -24,7 +24,7 @@
           </div>
           <div class="input-field">
             <label>Major</label>
-            <select required [(ngModel)]="category" [ngModelOptions]="{standalone: true}" id="category">
+            <select required [(ngModel)]="category" [ngModelOptions]="{standalone: true}" id="category" [class.special]="isSpecial">
               <option value="Computer Engineering">Computer Engineering</option>
               <option value="Electrical Engineering">Electrical Engineering</option>
               <option value="Mechanical Engineering">Mechanical Engineering</option>
@@ -73,8 +73,8 @@
                 class="form-control" id="th_last_name" placeholder="Enter Last Name (ภาษาไทย)" required>
             </div>
             <div class="input-field" >
-              <label [class.special]="isSpecial">Role on project</label>
-              <input type="text" [(ngModel)]="descript" [ngModelOptions]="{standalone: true}" class="form-control"
+              <label >Role on project</label>
+              <input type="text" [(ngModel)]="descript" [ngModelOptions]="{standalone: true}" class="form-control" [class.special]="isSpecial"
                 id="descript" placeholder="Enter Role description" required>
             </div>
           </div>
