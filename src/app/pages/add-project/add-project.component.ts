@@ -210,6 +210,7 @@ export class AddProjectComponent implements OnInit {
       if (isFormValid) {
         this.register();
       } else {
+        this.toggleSpecial();
         this.toastr.warning('Please fill in all required fields.');
         const firstInvalidControl = this.getFirstInvalidControl();
         if (firstInvalidControl) {
@@ -217,7 +218,7 @@ export class AddProjectComponent implements OnInit {
         }
       }
     } else {
-      this.toggleSpecial();
+      
       // โค้ดสำหรับการอัปเดต
       //   this.http.post("/addProject/keyword/delete/:").subscribe((Data: any) => {
       //   console.log(Data);
