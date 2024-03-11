@@ -278,15 +278,18 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  LeaveProject(idproject: any) {
-
+  async LeaveProject(idproject: any) {
+    
+    
     var confirmdelete = confirm("you leave from Project?")
     // console.log(confirmdelete)
     if (confirmdelete) {
       this.http.delete(this.api + `/project/leave/:${this.idbyemail}/:${idproject}`).subscribe((Data: any) => {
-        // this.isResultLoaded = true;
-        console.log(Data)
-        // location.reload()
+        this.http.get(this.api+"rmProject/student/:"+idproject).subscribe(async(res:any)=>{
+          if(res.data.length = 1){
+            
+          }
+        })
         this.scrollToTop();
       });
     }
