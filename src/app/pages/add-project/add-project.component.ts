@@ -217,7 +217,7 @@ export class AddProjectComponent implements OnInit {
         }
       }
     } else {
-      toggleSpecial();
+      this.toggleSpecial();
       // โค้ดสำหรับการอัปเดต
       //   this.http.post("/addProject/keyword/delete/:").subscribe((Data: any) => {
       //   console.log(Data);
