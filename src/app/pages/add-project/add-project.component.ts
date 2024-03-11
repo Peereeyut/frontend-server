@@ -390,6 +390,6 @@ export class AddProjectComponent implements OnInit {
   isSpecial: boolean = false;
 
   toggleSpecial() {
-    this.isSpecial = !this.isSpecial;
+    this.isSpecial = true;
   }
 }
