@@ -9,11 +9,13 @@
             <label>Project Name (English)</label>
             <input type="text" [(ngModel)]="en_title" [ngModelOptions]="{standalone: true}" id="en_title"
               placeholder="Enter project name" required [class.error-input]="!en_title">
+            <div *ngIf="!en_title" class="error-message">Project name (English) is required.</div>
           </div>
           <div class="input-field">
             <label>Project Name (ภาษาไทย)</label>
             <input type="text" [(ngModel)]="th_title" [ngModelOptions]="{standalone: true}" id="th_title"
               placeholder="Enter project name" required [class.error-input]="!th_title">
+            <div *ngIf="!th_title" class="error-message">Project name (ภาษาไทย) is required.</div>
           </div>
           <div class="input-field">
             <label>Link URL</label>
@@ -37,6 +39,7 @@
             <label>Date</label>
             <input type="date" [(ngModel)]="year" [ngModelOptions]="{ standalone: true }" name="year"
               placeholder="Select date" required [class.error-input]="!year">
+            <div *ngIf="!year" class="error-message">Date is required.</div>
           </div>
         </div>
         <br>
