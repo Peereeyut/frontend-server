@@ -72,8 +72,8 @@
               <input type="text" [(ngModel)]="data.th_last_name" [ngModelOptions]="{standalone: true}"
                 class="form-control" id="th_last_name" placeholder="Enter Last Name (ภาษาไทย)" required>
             </div>
-            <div class="input-field">
-              <label [class.special]="isSpecial">Role on project</label>
+            <div class="input-field" [class.special]="isSpecial">
+              <label >Role on project</label>
               <input type="text" [(ngModel)]="descript" [ngModelOptions]="{standalone: true}" class="form-control"
                 id="descript" placeholder="Enter Role description" required>
             </div>
