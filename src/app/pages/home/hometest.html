@@ -35,22 +35,23 @@
                     </div>
                 </div>
             </mat-card>
-                <!-- Add sort buttons -->
-                <div class="">
-                    <button mat-button (click)="sortByTitle()">Sort by Title</button>
-                    <button mat-button (click)="sortByDate()">Sort by Date</button>
-                </div>
+            <!-- Add sort buttons -->
+            <div class="">
+                <button mat-button (click)="sortByTitle()">Sort by Title</button>
+                <button mat-button (click)="sortByDate()">Sort by Date</button>
+            </div>
 
             <div class="container-fluid row mb-1">
                 <mat-card *ngFor="let StudentItem of getDisplayedStudents()" class="col-md-4 mb-3">
+
                     <mat-card-header>
                         <mat-card-title><a [routerLink]="['/project', StudentItem[0].idProject]" class="underline"
                                 style="font-size: 26px; color: rgb(1, 1, 170);"> <span
                                     [innerHTML]="highlightSearchText(StudentItem[0].en_title)"></span></a><br>
                         </mat-card-title>
                     </mat-card-header><br>
-                    <mat-card-content>
 
+                    <mat-card-content>
 
                         <div class="row">
                             <p style="font-size: 16px;">
@@ -75,13 +76,21 @@
                         </div>
 
                         <p>
-                            <a href="{{ StudentItem[0].url }}" target="_blank" class="blue-underlined" style="font-size: 14px;">{{
+                            <a href="{{ StudentItem[0].url }}" target="_blank" class="blue-underlined"
+                                style="font-size: 14px;">{{
                                 StudentItem[0].url }}
                             </a>
                         </p>
 
-                        <p><span [innerHTML]="highlightSearchText(StudentItem[0].category)"></span></p>
+                        <p>
+                            <span [innerHTML]="highlightSearchText(StudentItem[0].category)"></span>
+                        </p>
                         <p>Year: {{ StudentItem[0].year | date: 'yyyy-MM-dd' }}</p>
+                        <p *ngFor="let keywords of StudentItem[3]">
+                            <span [innerHTML]="highlightSearchText(keywords.keyword)"></span>
+                        </p>
+
+
                     </mat-card-content><br>
                     <mat-card-content>
                     </mat-card-content>

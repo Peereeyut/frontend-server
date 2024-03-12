@@ -163,12 +163,17 @@ export class HomeComponent implements OnInit {
       for (let i of resultData.data) {
         this.http.get(this.api + "/api/studentproject/:" + i.idProject).subscribe(async (resstudent: any) => {
           this.http.get(this.api + "/api/advisorproject/:" + i.idProject).subscribe(async (resadvisor: any) => {
-            // console.log(resadvisor.data)
-            var setarray= await [i, resstudent.data, resadvisor.data];
-            // console.log(await settest)
-            // var setarray = await [i, resstudent.data];
-            this.forgetstudent.push(await setarray);
-            //[{project}, [student:array], [advisor:array], [keywords:array]]
+            this.http.get(this.api + "/api/advisorproject/:" + i.idProject).subscribe(async (reskeyword: any) => {
+
+              // console.log(resadvisor.data)
+              var setarray= await [i, resstudent.data, resadvisor.data, reskeyword.data];
+              //[{project}, [student:array], [advisor:array], [keywords:array]]
+              // console.log(await settest)
+              // var setarray = await [i, resstudent.data];
+              this.forgetstudent.push(await setarray);
+
+
+            })
           })
 
           await console.log(await this.forgetstudent)
@@ -208,27 +213,7 @@ export class HomeComponent implements OnInit {
     // console.log('Previous page data:', previousPageData);
   }
 
-  // getDisplayedStudents() {
-  //   const startIndex = (this.currentPage - 1) * this.pageSize;
-  //   const endIndex = startIndex + this.pageSize;
 
-  //   let displayedStudents: any[];
-  //   const baseArray =
-  //     this.filteredStudentArray.length > 0
-  //       ? this.filteredStudentArray
-  //       : this.forgetstudent;
-
-  //   // Filter by category if a category is selected
-  //   if (this.selectedCategory && this.selectedCategory !== 'All') {
-  //     displayedStudents = baseArray.filter(project => project[0].category === this.selectedCategory);
-  //   } else {
-  //     // If "All" is selected, show all projects
-  //     displayedStudents = baseArray;
-  //   }
-  //   displayedStudents = displayedStudents.slice(startIndex, endIndex);
-
-  //   return displayedStudents;
-  // }
 
   highlightSearchText(text?: any): any {
     if (!text) {
