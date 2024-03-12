@@ -90,7 +90,21 @@ export class HomeComponent implements OnInit {
           (String(project[1]?.[1]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[2]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[3]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[1]?.[4]?.idstudent).includes(this.searchQuery.toLowerCase()))
+          (String(project[1]?.[4]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[0]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[1]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[2]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[3]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[4]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[5]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[6]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[7]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[8]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[9]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[10]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[11]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[12]?.keyword).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[3]?.[13]?.keyword).includes(this.searchQuery.toLowerCase())) 
         );
 
       });
