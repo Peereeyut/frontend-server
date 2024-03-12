@@ -87,9 +87,10 @@
                         </p>
                         <p>Year: {{ StudentItem[0].year | date: 'yyyy-MM-dd' }}</p>
                         <div class="row">
-                            <p *ngFor="let keywords of StudentItem[3]">
-                                <span [innerHTML]="highlightSearchText(keywords.keyword)">,</span>
+                            <p *ngFor="let keywords of StudentItem[3];let i = index">
+                                <span [innerHTML]="highlightSearchText(keywords.keyword)"></span>
                             </p>
+                            <span *ngIf="i !== StudentItem[3].length - 1"> , </span>
 
 
                         </div>
