@@ -41,3 +41,7 @@
   .menu ul button:hover{
     color: #fffdb9;
   }
+
+  .icon {
+    background-image: url('src/app/img/ENNULOGO.png');
+  }
