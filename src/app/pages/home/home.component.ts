@@ -163,7 +163,7 @@ export class HomeComponent implements OnInit {
       for (let i of resultData.data) {
         this.http.get(this.api + "/api/studentproject/:" + i.idProject).subscribe(async (resstudent: any) => {
           this.http.get(this.api + "/api/advisorproject/:" + i.idProject).subscribe(async (resadvisor: any) => {
-            this.http.get(this.api + "/api/advisorproject/:" + i.idProject).subscribe(async (reskeyword: any) => {
+            this.http.get(this.api + "/rmProject/keyword/:" + i.idProject).subscribe(async (reskeyword: any) => {
 
               // console.log(resadvisor.data)
               var setarray= await [i, resstudent.data, resadvisor.data, reskeyword.data];
