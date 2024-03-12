@@ -168,7 +168,7 @@ export class HomeComponent implements OnInit {
             // console.log(await settest)
             // var setarray = await [i, resstudent.data];
             this.forgetstudent.push(await setarray);
-            
+            //[{project}, [student:array], [advisor:array], [keywords:array]]
           })
 
           await console.log(await this.forgetstudent)

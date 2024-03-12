@@ -68,7 +68,7 @@
                                 <span *ngFor="let detailad of StudentItem[2]">
                                     <a [routerLink]="['/projectbyad', detailad.idadvisor]" class="blue-underlined">
                                         <span [innerHTML]="highlightSearchText(detailad.ad_en_first_name);"></span>
-                                        <span [innerHTML]="highlightSearchText(detailad.ad_en_last_name)"></span>
+                                        <span [innerHTML]="highlightSearchText(detailad.ad_en_last_name);"></span>
                                     </a>
                                 </span>
                             </p>
