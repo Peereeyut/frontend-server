@@ -65,7 +65,9 @@
 
                         <div class="row">
                             <p style="font-size: 16px;" *ngIf="StudentItem[2].length>0">
-                                <a href="">recall</a>
+                                <span *ngFor="let detailad of StudentItemp[2]">
+                                    <a href="">{{detailad.ad_en_first_name}}</a>
+                                </span>
                             </p>
                         </div>
 
