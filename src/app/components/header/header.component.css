@@ -1,49 +1,50 @@
 .navbar {
-    display: flex;
-    justify-content:  flex-start;
-    align-items: center;
-    background-color: #333;
-    padding: 10px 100px;
-    color: rgb(255, 255, 255);
-  }
-  
-  .spacer{
-    flex: 1 1 auto;
-  }
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 100px;
+  color: rgb(255, 255, 255);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
 
 .menu {
-    margin-left: 5%; 
-  }
-  
-  .menu ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    font-size: medium;
-  }
-  
-  .menu li {
-    margin-right: 30px;
-  }
-  
-  .menu li a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 500;
-    transition: color 0.3s;
-    font-size: 18px;
-  }
-  
-  .menu li a:hover {
-    color: #fffdb9;
-  }
-  
-  .menu ul button:hover{
-    color: #fffdb9;
-  }
+  margin-left: 5%;
+  /* จัดขวา */
+}
 
-  .icon {
-    background-image: url('src/app/img/ENNULOGO.png');
-    width: 5px;
-    height: 5px;
-  }
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  font-size: medium;
+}
+
+.menu li {
+  margin-right: 30px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s;
+  font-size: 18px;
+}
+
+.menu li a:hover {
+  color: #fffdb9;
+}
+
+.menu ul button:hover {
+  color: #fffdb9;
+}
+
+.icon {
+  background-image: url('src/app/img/ENNULOGO.png');
+  width: 5px;
+  height: 5px;
+}
