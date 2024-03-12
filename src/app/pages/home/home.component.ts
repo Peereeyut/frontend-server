@@ -82,6 +82,10 @@ export class HomeComponent implements OnInit {
           (project[1]?.[2]?.en_first_name && project[1][2].en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
           (project[1]?.[3]?.en_first_name && project[1][3].en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
           (project[1]?.[4]?.en_first_name && project[1][4].en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+          (project[2]?.[0]?.ad_en_first_name && project[2][0].ad_en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+          (project[2]?.[0]?.ad_en_last_name && project[2][0].ad_en_last_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+          (project[2]?.[1]?.ad_en_first_name && project[2][2].ad_en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+          (project[2]?.[1]?.ad_en_last_name && project[2][1].ad_en_last_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[0]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[1]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[2]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
