@@ -112,8 +112,8 @@ export class KeywordAdComponent implements OnInit {
   // ____________________________________ keyword(10) _______________________________
   keywordsData: any;
   countall:any;
-  getKeywords(studentId: string) {
-    this.http.get(this.api + `/projectAdv/keywords/:${studentId}`).subscribe((keywordData: any) => {
+  async getKeywords(studentId: string) {
+    this.http.get(this.api + `/projectAdv/keywords/:${studentId}`).subscribe(async(keywordData: any) => {
       // this.isResultLoaded = true;
       var count = 0;
       for(let i of keywordData.data){
@@ -122,7 +122,7 @@ export class KeywordAdComponent implements OnInit {
       }
       this.countall = await count;
 
-      this.keywordsData = keywordData.data;
+      this.keywordsData =await keywordData.data;
       console.log(this.keywordsData)
     });
   }
