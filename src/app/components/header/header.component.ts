@@ -39,8 +39,8 @@ export class HeaderComponent implements OnInit {
   }
 
   setrole: any;
-  async ngOnInit() {
-    this.userProfile = JSON.parse(sessionStorage.getItem("loggedInUser") || "");
+  async ngOnInit():Promise<void> {
+    this.userProfile =await JSON.parse(sessionStorage.getItem("loggedInUser") || "");
 
     this.setrole =await this.serviceG.getrolebyemail(this.userProfile.eamil)
     console.log(await this.setrole)

@@ -176,7 +176,7 @@ export class HomeComponent implements OnInit {
             })
           })
 
-          await console.log(await this.forgetstudent)
+          // await console.log(await this.forgetstudent)
         })
 
       }
