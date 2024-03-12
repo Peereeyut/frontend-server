@@ -62,9 +62,9 @@
                                 </span>
                             </p>
                         </div>
-                        
+
                         <div class="row">
-                            <p style="font-size: 16px;">
+                            <p style="font-size: 16px;" *ngIf="StudentItem[2].length>0">
                                 <span *ngFor="let items of StudentItem[2];">
                                     <a [routerLink]="['/projectbyad', item.idadvisor]" class="blue-underlined">
                                         <span [innerHTML]="highlightSearchText(items.ad_en_first_name)"></span>
@@ -73,11 +73,13 @@
                                 </span>
                             </p>
                         </div>
+
                         <p>
                             <a href="{{ StudentItem[0].url }}" target="_blank" class="blue-underlined" style="font-size: 14px;">{{
                                 StudentItem[0].url }}
                             </a>
                         </p>
+
                         <p><span [innerHTML]="highlightSearchText(StudentItem[0].category)"></span></p>
                         <p>Year: {{ StudentItem[0].year | date: 'yyyy-MM-dd' }}</p>
                     </mat-card-content><br>
