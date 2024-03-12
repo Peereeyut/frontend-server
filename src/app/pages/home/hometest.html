@@ -86,9 +86,13 @@
                             <span [innerHTML]="highlightSearchText(StudentItem[0].category)"></span>
                         </p>
                         <p>Year: {{ StudentItem[0].year | date: 'yyyy-MM-dd' }}</p>
-                        <p *ngFor="let keywords of StudentItem[3]">
-                            <span [innerHTML]="highlightSearchText(keywords.keyword)"></span>
-                        </p>
+                        <div>
+                            <p *ngFor="let keywords of StudentItem[3]">
+                                <span [innerHTML]="highlightSearchText(keywords.keyword)">,</span>
+                            </p>
+
+
+                        </div>
 
 
                     </mat-card-content><br>
