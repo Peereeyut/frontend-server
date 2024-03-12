@@ -157,12 +157,16 @@ export class HomeComponent implements OnInit {
 
       //for get student
       for (let i of resultData.data) {
-        this.http.get(this.api + "/api/studentproject/:" + i.idProject).subscribe(async (res: any) => {
+        this.http.get(this.api + "/api/studentproject/:" + i.idProject).subscribe(async (resstudent: any) => {
           // console.log(res.data)
-          var setarray = await [i, res.data]
+          this.http.get(this.api + "/api/studentproject/:" + i.idProject).subscribe(async (resadvisor: any) => {
+            var setarray = await [i, resstudent.data, resadvisor.data]
           this.forgetstudent.push(await setarray)
+          })
+          
           // await console.log(await this.forgetstudent)
         })
+        
       }
       this.totalPages = Math.ceil(this.StudentArray.length / this.pageSize);
     });
