@@ -29,17 +29,14 @@
     </div>
   </div><br>
   <mat-card-content>
-    <b><a>keyword: </a> <a [routerLink]="['/project-user/', idst]" class="blue-underlined"> All({{countall}}),<div
-          class="keywords-container">
-          <ng-container *ngFor="let Item of keywordsData; let i = index">
-            <span *ngIf="i % 7 === 0 && i !== 0"><br></span> <!-- Add line break every 3 keywords -->
-            <a [routerLink]="['/keyword', idst, Item.keyword]" class="blue-underlined tab">{{ Item.keyword }}({{
-              Item.count }})</a>
-            <span *ngIf="i !== keywordsData.length - 1 && (i + 1) % 7 !== 0"> , </span>
-            <!-- Add comma if not last keyword in line -->
-          </ng-container>
-        </div></a></b>
-
+    <b><a >keyword: </a> <a [routerLink]="['/project-user/', idst]" class="blue-underlined"> All({{countall}})</a></b>
+    <div class="keywords-container">
+      <ng-container *ngFor="let Item of keywordsData; let i = index">
+        <span *ngIf="i % 7 === 0 && i !== 0"><br></span> <!-- Add line break every 3 keywords -->
+        <a [routerLink]="['/keyword', idst, Item.keyword]" class="blue-underlined tab">{{ Item.keyword }}({{ Item.count }})</a>
+        <span *ngIf="i !== keywordsData.length - 1 && (i + 1) % 7 !== 0"> ,  </span> <!-- Add comma if not last keyword in line -->
+      </ng-container>
+    </div>
   </mat-card-content>
 </mat-card>
 
