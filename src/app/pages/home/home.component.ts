@@ -159,10 +159,10 @@ export class HomeComponent implements OnInit {
       for (let i of resultData.data) {
         this.http.get(this.api + "/api/studentproject/:" + i.idProject).subscribe(async (resstudent: any) => {
           this.http.get(this.api + "/api/advisorproject/:" + i.idProject).subscribe(async (resadvisor: any) => {
-            console.log(resadvisor.data)
-            var settest= await [i, resstudent.data, resadvisor.data];
-            console.log(await settest)
-            var setarray = await [i, resstudent.data];
+            // console.log(resadvisor.data)
+            var setarray= await [i, resstudent.data, resadvisor.data];
+            // console.log(await settest)
+            // var setarray = await [i, resstudent.data];
             this.forgetstudent.push(await setarray);
             
           })
