@@ -29,7 +29,7 @@
       </div>
     </div><br>
     <mat-card-content>
-      <b><a >keyword: </a> <a [routerLink]="['/projectbyad/', idst]" class="blue-underlined"> All</a></b>
+      <b><a >keyword: </a> <a [routerLink]="['/projectbyad/', idst]" class="blue-underlined"> All({{countall}})</a></b>
       <div class="keywords-container">
         <ng-container *ngFor="let Item of keywordsData; let i = index">
           <span *ngIf="i % 7 === 0 && i !== 0"><br></span> <!-- Add line break every 3 keywords -->
