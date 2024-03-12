@@ -157,16 +157,17 @@ export class HomeComponent implements OnInit {
 
       //for get student
       for (let i of resultData.data) {
-        this.http.get(this.api + "/api/studentproject/:" + i.idProject).subscribe(async (resstudent: any) => {
+        await this.http.get(this.api + "/api/studentproject/:" + i.idProject).subscribe(async (resstudent: any) => {
           // console.log(res.data)
           this.http.get(this.api + "/api/advisorproject/:" + i.idProject).subscribe(async (resadvisor: any) => {
             var setarray = await [i, resstudent.data, resadvisor.data]
-          this.forgetstudent.push(await setarray)
+            this.forgetstudent.push(await setarray)
+            
           })
-          
-          // await console.log(await this.forgetstudent)
+
+          await console.log(await this.forgetstudent)
         })
-        
+
       }
       this.totalPages = Math.ceil(this.StudentArray.length / this.pageSize);
     });
@@ -259,32 +260,32 @@ export class HomeComponent implements OnInit {
 
   sortByTitle(): void {
     if (!this.sortByTitleClicked) {
-        // Sort projects by title
-        this.filteredStudentArray.sort((a, b) => {
-            const titleA = a[0].en_title.toLowerCase();
-            const titleB = b[0].en_title.toLowerCase();
-            const numRegEx = /^\d+/; // Regular expression to match numbers at the beginning of the string
+      // Sort projects by title
+      this.filteredStudentArray.sort((a, b) => {
+        const titleA = a[0].en_title.toLowerCase();
+        const titleB = b[0].en_title.toLowerCase();
+        const numRegEx = /^\d+/; // Regular expression to match numbers at the beginning of the string
 
-            // Extract numbers from the beginning of the titles
-            const numA = parseInt(titleA.match(numRegEx)?.[0]) || 0;
-            const numB = parseInt(titleB.match(numRegEx)?.[0]) || 0;
+        // Extract numbers from the beginning of the titles
+        const numA = parseInt(titleA.match(numRegEx)?.[0]) || 0;
+        const numB = parseInt(titleB.match(numRegEx)?.[0]) || 0;
 
-            // Compare numbers first, then the rest of the string
-            if (numA !== numB) {
-                return numA - numB; // Sort numbers in ascending order
-            } else {
-                // If numbers are the same, compare the remaining characters
-                const restA = titleA.replace(numRegEx, '');
-                const restB = titleB.replace(numRegEx, '');
-                return restA.localeCompare(restB);
-            }
-        });
-        // Re-calculate current page data if needed
-        this.currentPage = 1;
-        this.sortByTitleClicked = true;
-        this.sortByDateClicked = false; // Reset sortByDateClicked
+        // Compare numbers first, then the rest of the string
+        if (numA !== numB) {
+          return numA - numB; // Sort numbers in ascending order
+        } else {
+          // If numbers are the same, compare the remaining characters
+          const restA = titleA.replace(numRegEx, '');
+          const restB = titleB.replace(numRegEx, '');
+          return restA.localeCompare(restB);
+        }
+      });
+      // Re-calculate current page data if needed
+      this.currentPage = 1;
+      this.sortByTitleClicked = true;
+      this.sortByDateClicked = false; // Reset sortByDateClicked
     }
-}
+  }
 
 
   sortByDate(): void {

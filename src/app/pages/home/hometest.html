@@ -64,10 +64,10 @@
                         </div>
                         <div class="row">
                             <p style="font-size: 16px;">
-                                <span *ngFor="let item of StudentItem[2]; let i = index">
+                                <span *ngFor="let items of StudentItem[2]; let i = index">
                                     <a [routerLink]="['/projectbyad', item.idadvisor]" class="blue-underlined">
-                                        <span [innerHTML]="highlightSearchText(item.ad_en_first_name)"></span>
-                                        <span [innerHTML]="highlightSearchText(item.ad_en_last_name)"></span></a>
+                                        <span [innerHTML]="highlightSearchText(items.ad_en_first_name)"></span>
+                                        <span [innerHTML]="highlightSearchText(items.ad_en_last_name)"></span></a>
                                     <span *ngIf="i !== StudentItem[1].length - 1"> , </span>
                                 </span>
                             </p>
