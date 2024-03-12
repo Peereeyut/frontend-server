@@ -12,7 +12,7 @@
   }
 
 .menu {
-    margin-left: 5%; /* จัดขวา */
+    margin-left: 5%; 
   }
   
   .menu ul {
@@ -44,4 +44,6 @@
 
   .icon {
     background-image: url('src/app/img/ENNULOGO.png');
+    width: 5px;
+    height: 5px;
   }

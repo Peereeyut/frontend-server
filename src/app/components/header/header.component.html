@@ -1,9 +1,6 @@
 <mat-toolbar class="navbar max-w mx-auto border-x justify-between">
-  <img src="/src/app/img/NULOGO.png" alt="">
-  <img
-  class="icon"
-  src=""
-/>
+  <img src="/src/app/img/NULOGO.png" alt="NU Logo">
+  <img class="icon" src="/src/app/img/ENNULOGO.png" alt="ENNU Logo" />
   <a routerLink="/home">NU Engineering Project Database System</a>
   <div class="spacer"></div>
   <div class="menu">
@@ -20,7 +17,7 @@
           <mat-icon>account_box</mat-icon>
         </button>
         <mat-menu #setting="matMenu">
-          <a  mat-menu-item (click)="profile()">profile</a>
+          <a mat-menu-item (click)="profile()">profile</a>
           <a mat-menu-item (click)="handleSignOut()">LogOut</a>
         </mat-menu>
       </ng-template>
