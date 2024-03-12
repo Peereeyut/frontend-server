@@ -89,7 +89,7 @@
 
                         <span *ngFor="let keywords of StudentItem[3]; let i = index">
                             <span [innerHTML]="highlightSearchText(keywords.keyword)"></span>
-                            <span *ngIf="i !== StudentItem[1].length - 1"> , </span>
+                            <span *ngIf="i !== StudentItem[3].length - 1"> , </span>
                         </span>
 
 
