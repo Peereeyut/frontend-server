@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit {
     this.userProfile = JSON.parse(sessionStorage.getItem("loggedInUser") || "");
 
     this.setrole =await this.serviceG.getrolebyemail(this.userProfile.eamil)
+    console.log(await this.setrole)
   }
 
   async profile() {

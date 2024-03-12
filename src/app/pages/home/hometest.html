@@ -86,16 +86,14 @@
                             <span [innerHTML]="highlightSearchText(StudentItem[0].category)"></span>
                         </p>
                         <p>Year: {{ StudentItem[0].year | date: 'yyyy-MM-dd' }}</p>
-                        
-                            <tr *ngFor="let keywords of StudentItem[3];let i = index">
-                                <td>
-                                    <span [innerHTML]="highlightSearchText(keywords.keyword)"></span>
-                                    <span *ngIf="i !== StudentItem[3].length - 1"> , </span>
-                                </td>
-                            </tr>
+
+                        <span *ngFor="let keywords of StudentItem[3]; let i = index">
+                            <span [innerHTML]="highlightSearchText(keywords.keyword)"></span>
+                            <span *ngIf="i !== StudentItem[1].length - 1"> , </span>
+                        </span>
 
 
-                        
+
 
 
                     </mat-card-content><br>
