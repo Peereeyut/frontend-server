@@ -86,7 +86,7 @@
                         <p>
                             <span [innerHTML]="highlightSearchText(StudentItem[0].category)"></span>
                         </p>
-                        <p>Academic Year: {{ StudentItem[0].year }}</p>
+                        <p>Academic Year: {{ StudentItem[0].year | date:'yyyy' }}</p>
                         <a *ngIf="StudentItem[3].length>0">
                             <p>Keywords:
                                 <span *ngFor="let keywords of StudentItem[3]; let i = index">
