@@ -10,7 +10,10 @@ import { ChartComponent } from "ng-apexcharts";
 })
 export class DashboardComponent implements OnInit {
   api = "https://backend-project-neon.vercel.app"
+  listcategory=['Computer Engineering', 'Electrical Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Chemical Engineering', 'Industrial Engineering', 'Materials Engineering', 'Environmental Engineering']
   async ngOnInit(): Promise<void> {
+    // await this.listcategory.push("All");
+    await this.listcategory.sort()
     try {
       await this.onCategorySelected('All');
     }
