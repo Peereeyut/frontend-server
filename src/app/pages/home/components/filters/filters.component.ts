@@ -15,8 +15,10 @@ export class FiltersComponent implements OnInit {
   constructor(private router: Router) {
    
   }
-
-  ngOnInit(): void {}
+  listcategory=['Computer Engineering', 'Electrical Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Chemical Engineering', 'Industrial Engineering', 'Materials Engineering', 'Environmental Engineering']
+  async ngOnInit(): Promise<void> {
+    this.listcategory.sort()
+  }
 
   onCategorySelected(category: string): void {
     this.categorySelected.emit(category);
