@@ -1,0 +1,64 @@
+<mat-tab-group>
+    <mat-tab label="student">
+        <mat-card>
+            <mat-card-content>
+                <input mat-raised-button class="custom-file-input" type="file" #fileUploader
+                    accept=".csv, apllication/vnd.openxmlsformats-officedocument.spreadsheetml.sheet, application/vndms-excel"
+                    (change)="csvImport($event)" id="inputGroupFile">
+                <label for="inputGroupFile" class="custom-file-label"></label>
+
+            </mat-card-content>
+            <br>
+            <mat-card-content>
+
+                <div class="" *ngIf="users.length>0">
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef> id </th>
+                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="firstname">
+                            <th mat-header-cell *matHeaderCellDef> firstname </th>
+                            <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="lastname">
+                            <th mat-header-cell *matHeaderCellDef> lastname </th>
+                            <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="email">
+                            <th mat-header-cell *matHeaderCellDef> email </th>
+                            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="tel">
+                            <th mat-header-cell *matHeaderCellDef> tel </th>
+                            <td mat-cell *matCellDef="let element"> {{element.tel}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <br>
+                    <div class="example-button-row" style="text-align: center;">
+                        <button mat-fab extended color="primary" (click)="upload()">
+                            <mat-icon>upload</mat-icon>
+                            Upload
+                        </button>
+                        <button mat-fab extended color="warn" (click)="files.value=null">
+                            <mat-icon>cancel</mat-icon>
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="advisor">
+        
+    </mat-tab>
+</mat-tab-group>
