@@ -1,13 +1,14 @@
 import { Component, ElementRef } from '@angular/core';
 import { read, utils, writeFile } from 'xlsx'; 
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-imcsv',
   templateUrl: './imcsv.component.html',
   styleUrls: ['./imcsv.component.css']
 })
 export class ImcsvComponent {
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient, private toast:ToastrService){}
   displayedColumns: string[] = ['id', 'firstname', 'lastname', 'email', 'tel'];
   dataSource:any;
   users:any[]=[]
@@ -37,9 +38,9 @@ export class ImcsvComponent {
     this.files.nativeElement.value=''
     this.users 
   }
-  upload(){
+  async upload(){
     for(let i of this.dataSource){
-      this.student_post(i)
+      await this.student_post(i)
     }
   }
   student_post(data:any){
@@ -56,8 +57,10 @@ export class ImcsvComponent {
       if(Data.status){
         let returnid = await Data.insertId
         await this.user_student(studentData,returnid)
+        await this.toast.success("Upload Complete")
         await this.student_email(studentData.email, returnid);
         await this.student_phone(studentData.tel, returnid)
+
       }
     })
   }
@@ -86,6 +89,9 @@ export class ImcsvComponent {
       "role_idrole": "2",
     };
     this.http.post(this.api + "/register/user/add", userData).subscribe((Data: any) => {
+      if(Data.result){
+        this.toast.success("Create user success")
+      }
     })
   }
   user_advisor(){
