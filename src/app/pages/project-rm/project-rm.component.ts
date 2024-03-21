@@ -103,10 +103,11 @@ export class ProjectRMComponent {
     });
   }
 
-  getKeywordById(projectId: any) {
-    this.http.get(this.api + `/rmProject/keyword/:${projectId}`).subscribe((resultData: any) => {
-      this.projectKeywordData = resultData.data;
-      // console.log(this.projectAdvisorData)
+ async getKeywordById(projectId: any) {
+    this.http.get(this.api + `/rmProject/keyword/:${projectId}`).subscribe(async(resultData: any) => {
+      var tempdata = await resultData.data;
+      this.projectKeywordData =await tempdata;
+      await this.projectKeywordData.sort((a, b) => a.keyword.localeCompare(b.keyword))
     });
   }
 
