@@ -65,6 +65,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { InviteadvisorEditComponent } from './pages/edit-project/inviteadvisor-edit/inviteadvisor-edit.component';
 import { ReferenceComponent } from './pages/reference/reference.component';
 import { ImcsvComponent } from './pages/backend/imcsv/imcsv.component';
+
+import * as XLSX from 'xlsx';
 @NgModule({
   declarations: [
     AppComponent,
