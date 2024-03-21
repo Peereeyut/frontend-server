@@ -77,36 +77,17 @@ export class HomeComponent implements OnInit {
           (project[0].year && project[0].year.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
           (project[0].url && project[0].url.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
           (project[0].category && project[0].category.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[1]?.[0]?.en_first_name && project[1][0].en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[1]?.[1]?.en_first_name && project[1][1].en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[1]?.[2]?.en_first_name && project[1][2].en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[1]?.[3]?.en_first_name && project[1][3].en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[1]?.[4]?.en_first_name && project[1][4].en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[2]?.[0]?.ad_en_first_name && project[2][0].ad_en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[2]?.[0]?.ad_en_last_name && project[2][0].ad_en_last_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[2]?.[1]?.ad_en_first_name && project[2][2].ad_en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[2]?.[1]?.ad_en_last_name && project[2][1].ad_en_last_name.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
+          (project[1]?.some((student: any) => student.en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase()))) ||
+          
           (String(project[1]?.[0]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[1]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[2]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[3]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[4]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[0]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[1]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[2]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[3]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[4]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[5]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[6]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[7]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[8]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[9]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[10]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[11]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[12]?.keyword).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[3]?.[13]?.keyword).includes(this.searchQuery.toLowerCase())) 
-        );
 
+          (project[2]?.some((advisor: any) => advisor.ad_en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase()))) ||
+          (project[3]?.some((keyword: any) => keyword.keyword.toLowerCase().includes(this.searchQuery.toLowerCase()))) 
+            );
       });
 
       // คำนวณหน้าและแสดงผลลัพธ์
