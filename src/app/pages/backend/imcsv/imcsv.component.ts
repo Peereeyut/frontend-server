@@ -2,13 +2,14 @@ import { Component, ElementRef } from '@angular/core';
 import { read, utils, writeFile } from 'xlsx'; 
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { BackendComponent } from '../backend.component';
 @Component({
   selector: 'app-imcsv',
   templateUrl: './imcsv.component.html',
   styleUrls: ['./imcsv.component.css']
 })
 export class ImcsvComponent {
-  constructor(private http:HttpClient, private toast:ToastrService){}
+  constructor(private http:HttpClient, private toast:ToastrService, private backend:BackendComponent){}
   displayedColumns: string[] = ['id', 'firstname', 'lastname', 'email', 'tel'];
   dataSource:any;
   users:any[]=[]
@@ -84,7 +85,7 @@ export class ImcsvComponent {
   user_student(data:any, id:any){
     let userData = {
       "iduser": id,
-      "name": data.firstname,
+      "name": data.en_first_name,
       "email": data.email,
       "role_idrole": "2",
     };
