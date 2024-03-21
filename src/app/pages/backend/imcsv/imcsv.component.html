@@ -43,7 +43,7 @@
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
                     <br>
-                    <div class="example-button-row" style="text-align: center;">
+                    <div class="example-button-row" style="text-align: center;" *ngIf="users.length>0">
                         <button mat-fab extended color="primary" (click)="upload()">
                             <mat-icon>upload</mat-icon>
                             Upload
