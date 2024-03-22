@@ -10,10 +10,10 @@ import { ChartComponent } from "ng-apexcharts";
 })
 export class DashboardComponent implements OnInit {
   api = "https://backend-project-neon.vercel.app"
-  listcategory=['Computer Engineering', 'Electrical Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Chemical Engineering', 'Industrial Engineering', 'Materials Engineering', 'Environmental Engineering']
+  listcategory:string[]=[]
   async ngOnInit(): Promise<void> {
-    // await this.listcategory.push("All");
-    await this.listcategory.sort()
+    
+    await this.funcgetmajor()
     try {
       await this.onCategorySelected('All');
     }
@@ -374,5 +374,15 @@ export class DashboardComponent implements OnInit {
   scrollToTop() {
     const element = document.body;
     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  async funcgetmajor(){
+    this.http.get(this.api+"/backend/major").subscribe(async(res:any)=>{
+      for(let item of res.data){
+        var name =await item.major_name
+        await this.listcategory.push(name)
+      }
+      await this.listcategory.sort()
+    })
   }
 }
