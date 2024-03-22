@@ -1,7 +1,9 @@
+
+
+
 <mat-card class="custom-mat-card">
   <mat-drawer mode="side" opened class="p-6">
     <div class="filters-container">
-
       <mat-card class="major-card dash ">
         <mat-card-header>
           <mat-title class="mb-3">
@@ -26,10 +28,7 @@
                 <a class="text-sm">{{item}}</a>
               </mat-list-option>
             </div>
-            
-            
           </mat-selection-list>
-
         </mat-card-content>
       </mat-card>
     </div>
@@ -40,19 +39,35 @@
 
         <!--  -->
       </mat-card>
-      <h1 style="text-align: center;"><b>Statistics Project Engineer</b> </h1>
-      <div class="row">
-        <div class="chartContainer"><br>
-          <!-- <apx-chart [series]="charted.series" [chart]="charted.chart" [xaxis]="charted.xaxis" [stroke]="charted.stroke"
-            [tooltip]="charted.tooltip" [dataLabels]="charted.dataLabels" [legend]="charted.legend"
-            [markers]="charted.markers" [grid]="charted.grid" [yaxis]="charted.yaxis"
-            [title]="charted.title"></apx-chart> -->
-          <apx-chart [series]="pie.series" [chart]="pie.chart" [labels]="pie.labels" [title]="pie.title" [tooltip]="pie.tooltip"
-            [responsive]="pie.responsive"></apx-chart>
-          <apx-chart [series]="bar.series" [chart]="bar.chart" [dataLabels]="bar.dataLabels" [title]="bar.title"
-            [plotOptions]="bar.plotOptions" [xaxis]="bar.xaxis" ></apx-chart>
-        </div>
-      </div>
+      <mat-tab-group>
+        <mat-tab label="Many project">
+          <br>
+          <h1 style="text-align: center;"><b>Statistics Project Engineer</b> </h1>
+          <div class="row">
+            <div class="chartContainer"><br>
+              <apx-chart [series]="pie.series" [chart]="pie.chart" [labels]="pie.labels" [title]="pie.title" [tooltip]="pie.tooltip"
+                [responsive]="pie.responsive"></apx-chart>
+              <apx-chart [series]="bar.series" [chart]="bar.chart" [dataLabels]="bar.dataLabels" [title]="bar.title"
+                [plotOptions]="bar.plotOptions" [xaxis]="bar.xaxis" ></apx-chart>
+            </div>
+          </div>
+        </mat-tab>
+        <!--  -->
+        <mat-tab label="Many keyword">
+          <br>
+          <h1 style="text-align: center;"><b>Statistics Project Engineer</b> </h1>
+          <div class="row">
+            <div class="chartContainer"><br>
+              <apx-chart [series]="piekey.series" [chart]="piekey.chart" [labels]="piekey.labels" [title]="piekey.title" [tooltip]="piekey.tooltip"
+                [responsive]="piekey.responsive"></apx-chart>
+              <!-- <apx-chart [series]="barkey.series" [chart]="barkey.chart" [dataLabels]="barkey.dataLabels" [title]="barkey.title"
+                [plotOptions]="barkey.plotOptions" [xaxis]="barkey.xaxis" ></apx-chart> -->
+            </div>
+          </div>
+
+        </mat-tab>
+      </mat-tab-group>
+
     </mat-drawer-content>
   </mat-drawer-container>
 </mat-card>
