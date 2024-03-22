@@ -78,8 +78,8 @@
         </div>
     
         <div class="" style="text-align: center;" *ngIf="listcategory_insert.length>0">
-          <button mat-button color="primary" >Summit</button>
-          <button mat-button color="warn">Cancel</button>
+          <button mat-button color="primary" (click)="funcSubmit()">Summit</button>
+          <button mat-button color="warn" (click)="funcclearcategory()">Cancel</button>
         </div>
 
       </mat-card>
