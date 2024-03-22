@@ -22,10 +22,11 @@ export class BackendComponent implements AfterViewInit {
   sessionid: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
+  varcategory:string=""
+  listcategory=['Computer Engineering', 'Electrical Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Chemical Engineering', 'Industrial Engineering', 'Materials Engineering', 'Environmental Engineering']
   ngAfterViewInit():void {
     this.sessionid = sessionStorage.getItem("id")?.toString();
-
+    this.listcategory.sort()
 
   }
   LoadUser() {
@@ -56,7 +57,13 @@ export class BackendComponent implements AfterViewInit {
       this.LoadUser();
     });
   }
-
+  listcategory_insert:string[]=[]
+  async funccategory(text:string){
+    // await alert(text)
+    await this.listcategory_insert.push(text)
+    this.varcategory=''
+    
+  }
 
 
 }
