@@ -65,9 +65,17 @@ export class BackendComponent implements AfterViewInit {
     });
   }
   listcategory_insert:string[]=[]
+
+  convertToTitleCase(str:string) {
+    if (!str) {
+        return ""
+    }
+    return str.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
+  }
+
   async funccategory(text:string){
     // await alert(text)
-    await this.listcategory_insert.push(text)
+    await this.listcategory_insert.push(this.convertToTitleCase(text))
     this.varcategory=''
     
   }
@@ -79,9 +87,10 @@ export class BackendComponent implements AfterViewInit {
   async funcgetmajor(){
     this.http.get(this.api+"/backend/major").subscribe(async(res:any)=>{
       for(let item of res.data){
-        var name = item.major_name
-        this.listcategory.push(name)
+        var name =await item.major_name
+        await this.listcategory.push(name)
       }
+      await this.listcategory.sort()
     })
   }
   
