@@ -46,7 +46,47 @@
       </mat-card-content>
     </mat-card>
   </mat-tab>
-  <mat-tab label="Major"> </mat-tab>
+
+  <mat-tab label="Major">
+    <div class="row">
+      <mat-card class="column">
+        <mat-card-header>
+          <h4><b>Update Major</b></h4>
+        </mat-card-header>
+        <div class="" *ngFor="let item of listcategory">
+          <mat-card-content>
+            {{item}}
+          </mat-card-content>
+        </div>
+      </mat-card>
+      <mat-card class="column">
+        <mat-form-field>
+          <mat-label>name of major</mat-label>
+          <input matInput [(ngModel)]="varcategory">
+          <button type="button" mat-icon-button matSuffix (click)="funccategory(varcategory)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-form-field>
+        <div class="" *ngIf="listcategory_insert.length>0">
+          <div class="" *ngFor="let i of listcategory_insert">
+            <ul class="circle">
+              <li>
+                <p><b>{{i}}</b></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="" style="text-align: center;">
+          <button mat-button color="primary" >Summit</button>
+          <button mat-button color="warn">Cancel</button>
+        </div>
+
+      </mat-card>
+    </div>
+
+
+  </mat-tab>
   <mat-tab label="Import CSV">
     <app-imcsv></app-imcsv>
   </mat-tab>
