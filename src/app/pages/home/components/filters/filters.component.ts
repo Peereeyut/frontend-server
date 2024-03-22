@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { DashboardComponent } from 'src/app/pages/dashboard/dashboard.component';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
@@ -12,12 +13,14 @@ export class FiltersComponent implements OnInit {
 
 
  
-  constructor(private router: Router) {
-   
-  }
-  listcategory=['Computer Engineering', 'Electrical Engineering', 'Mechanical Engineering', 'Civil Engineering', 'Chemical Engineering', 'Industrial Engineering', 'Materials Engineering', 'Environmental Engineering']
+  constructor(private router: Router, private http:HttpClient) {}
+
+  api = "https://backend-project-neon.vercel.app";
+  listcategory:string[]=[]
   async ngOnInit(): Promise<void> {
-    this.listcategory.sort()
+    await this.funcgetmajor();
+  
+    
   }
 
   onCategorySelected(category: string): void {
@@ -29,5 +32,13 @@ export class FiltersComponent implements OnInit {
     const element = document.body;
     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-
+  async funcgetmajor(){
+    this.http.get(this.api+"/backend/major").subscribe(async(res:any)=>{
+      for(let item of res.data){
+        var name =await item.major_name
+        await this.listcategory.push(name)
+      }
+      await this.listcategory.sort()
+    })
+  }
 }
