@@ -96,11 +96,12 @@ export class AddProjectComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.route.params.subscribe((params) => {
+  async ngOnInit(): Promise<void> {
+    await this.route.params.subscribe((params) => {
       this.studentId = params['idstudent'].substring(1);
     });
-    this.getStudent(this.studentId);
+    await this.funcgetmajor();
+    await this.getStudent(this.studentId);
   }
 
   isAddButtonDisabled(): boolean {
@@ -391,5 +392,17 @@ export class AddProjectComponent implements OnInit {
 
   toggleSpecial() {
     this.isSpecial = true;
+  }
+  /////////////////////////////////////////////////////////////////////
+  listcategory:string[]=[]
+  async funcgetmajor(){
+    this.http.get(this.api+"/backend/major").subscribe(async(res:any)=>{
+      for(let item of res.data){
+        var name =await item.major_name
+        await this.listcategory.push(name)
+      }
+      await this.listcategory.sort()
+      await console.log(this.listcategory)
+    })
   }
 }
