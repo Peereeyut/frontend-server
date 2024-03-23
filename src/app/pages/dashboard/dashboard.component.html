@@ -33,6 +33,7 @@
       </mat-card>
     </div>
   </mat-drawer>
+  
   <mat-drawer-container class="min-h-full max-w-7xl border-x">
     <mat-drawer-content class="p-6">
       <mat-card>
@@ -43,8 +44,8 @@
         <mat-tab label="Many project">
           <br>
           <h1 style="text-align: center;"><b>Statistics Project Engineer</b> </h1>
-          <div class="row">
-            <div class="chartContainer"><br>
+          <div >
+            <div ><br>
               <apx-chart [series]="pie.series" [chart]="pie.chart" [labels]="pie.labels" [title]="pie.title" [tooltip]="pie.tooltip"
                 [responsive]="pie.responsive"></apx-chart>
               <apx-chart [series]="bar.series" [chart]="bar.chart" [dataLabels]="bar.dataLabels" [title]="bar.title"
@@ -55,11 +56,12 @@
         <!--  -->
         <mat-tab label="Many keyword">
           <br>
-          <h1 style="text-align: center;"><b>Statistics Project Engineer</b> </h1>
-          <div class="row">
-            <div class="chartContainer"><br>
+          <h1 style="text-align: center;"><b>Statistics keyword Engineer</b> </h1>
+          <div class="chartContainer">
+            <div><br>
               <apx-chart [series]="piekey.series" [chart]="piekey.chart" [labels]="piekey.labels" [title]="piekey.title" [tooltip]="piekey.tooltip"
                 [responsive]="piekey.responsive"></apx-chart>
+             
             </div>
           </div>
 
