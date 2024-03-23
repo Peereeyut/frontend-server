@@ -64,7 +64,7 @@ piekey:any;
     this.piekey = {
       series: pieseries,
       chart: {
-        width: 400,
+        width: 500,
         type: "pie",
       },
 
@@ -205,7 +205,7 @@ piekey:any;
     if (category == "All") {
 
       /////////////////////
-      this.http.get(this.api + "/dashboard/year").subscribe(async (res: any) => {
+      await this.http.get(this.api + "/dashboard/year").subscribe(async (res: any) => {
         this.label = []
         this.series = []
         for (let i of res.data) {
@@ -218,20 +218,20 @@ piekey:any;
       })
 
 
-      this.http.get(this.api+"/dashboard/keyword").subscribe(async(res:any)=>{
+      await this.http.get(this.api+"/dashboard/keyword").subscribe(async(res:any)=>{
         var label=[];
         var series=[];
         for (let i of res.data) {
           await label.push(String(i.keyword));
           await series.push(i.freq);
         }
-        await this.pieChart_keyword(label, series, `Analytic of  ${category}`)
+        await this.pieChart_keyword(label, series, `Analytic keyword of  ${category}`)
         
         
       })
     }
     else {
-      this.http.get(this.api + "/dashboard/category/:" + category).subscribe(async (res: any) => {
+      await this.http.get(this.api + "/dashboard/category/:" + category).subscribe(async (res: any) => {
         this.label = []
         this.series = []
         for (let i of res.data) {
@@ -245,18 +245,18 @@ piekey:any;
       })
 
       // 
-      this.http.get(this.api + "/dashboard/keyword/:" + category).subscribe(async (res: any) => {
+      await this.http.get(this.api + "/dashboard/keyword/:" + category).subscribe(async (res: any) => {
         var label = []
         var series = []
         for (let i of res.data) {
           await label.push(String(i.keyword));
           await series.push(i.freq);
         }
-        await this.pieChart_keyword(label, series, `Analytic pie chart of  ${category}`)
+        await this.pieChart_keyword(label, series, `Analytic keyword of  ${category}`)
        
       })
     }
-    this.scrollToTop();
+    await this.scrollToTop();
   }
 
 
