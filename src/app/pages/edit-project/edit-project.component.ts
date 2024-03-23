@@ -70,6 +70,7 @@ export class EditProjectComponent implements OnInit {
   projectKeywordData: any;
 
   ngOnInit(): void {
+    this.funcgetmajor();
     this.route.params.subscribe(async (params) => {
       this.projectId = await params['idProject'].substring(1);
       this.studentId = await params['idstudent'].substring(1);
@@ -446,5 +447,16 @@ export class EditProjectComponent implements OnInit {
       this.idadinvite = '';
       console.log(this.arrayidinviteadvisor)
     });
+  }
+  listcategory:string[]=[]
+  async funcgetmajor(){
+    this.http.get(this.api+"/backend/major").subscribe(async(res:any)=>{
+      for(let item of res.data){
+        var name =await item.major_name
+        await this.listcategory.push(name)
+      }
+      await this.listcategory.sort()
+      await console.log(this.listcategory)
+    })
   }
 }
