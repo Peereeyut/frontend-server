@@ -10,8 +10,12 @@
         <div class="search-results">
             <div class="centered-content m-1">
                 <h4 class="flex-container small-icon">
-                    <span>{{ searchResultKeyword }} </span> &nbsp;&nbsp;
-                    <b><a href="/home"> × </a></b>
+                    <div *ngFor="let i of advsearch_list">
+                        <span>{{ i.word }} </span> &nbsp;&nbsp;
+                        <b><a (click)="delete_word(i)"> × </a></b>
+                        <br>
+                    </div>
+
                 </h4>
             </div>
         </div>
@@ -29,9 +33,13 @@
             <mat-card class="customAl-card mt-1 text-center mb-3" *ngIf="isSearchClicked && noSearchResultsFound">
                 <div class="search-results">
                     <div class="centered-content mt-3 m-2" style="color: rgb(255, 0, 0);">
-                        <a class="flex-container small-icon">
-                            No search results found for "{{ searchResultKeyword }}"
-                        </a>
+                        <div class="" *ngFor="let i of advsearch_list">
+                            <div class="" *ngIf="i.search == false"></div>
+                            <a class="flex-container small-icon">
+                                No search results found for "{{i.word}}"
+                            </a>
+                        
+                        </div>
                     </div>
                 </div>
             </mat-card>
@@ -110,7 +118,7 @@
         </mat-drawer-content>
     </mat-drawer-container>
 </mat-card>
-
+<!-- 
 <script>
     function highlightSearchText(text) {
         var query = "{{ searchQuery }}"; // ใช้ Angular interpolation ในการรับค่า searchQuery จาก Angular component
@@ -118,4 +126,4 @@
             return '<mark>' + match + '</mark>';
         });
     }
-</script>
+</script> -->
