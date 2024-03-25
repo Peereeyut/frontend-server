@@ -12,7 +12,7 @@
                 <h4 class="flex-container small-icon">
                     <div *ngFor="let i of advsearch_list">
                         <span>{{ i.word }} </span> &nbsp;&nbsp;
-                        <b><a (click)="delete_word(i)"> × </a></b>
+                        <b><a (click)="delete_word(i)" [ngClass]="{ 'clickable': isClickable }"> × </a></b>
                         <br>
                     </div>
 
