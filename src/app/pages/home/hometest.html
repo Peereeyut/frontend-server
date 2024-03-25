@@ -5,21 +5,23 @@
         <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" />
         <button (click)="onSubmit()" class="search-button">Search</button>
     </div>
+    <div class="grid-container" *ngIf="isSearchClicked">
+        <ng-container *ngFor="let i of advsearch_list">
+            <mat-card class="custom-card mt-2 text-start">
+                <div class="search-results">
+                    <div class="centered-content m-1">
 
-    <mat-card class="custom-card mt-2 text-start" *ngIf="isSearchClicked">
-        <div class="search-results">
-            <div class="centered-content m-1">
-                <h4 class="flex-container small-icon">
-                    <div *ngFor="let i of advsearch_list">
-                        <span>{{ i }} </span> &nbsp;&nbsp;
-                        <b><a (click)="delete_word(i)"> × </a></b>
-                        <br>
+                        <h4 class="flex-container small-icon">
+                            <span>{{ i }}</span>&nbsp;&nbsp;
+                            <b><a (click)="delete_word(i)"> × </a></b><br>
+                        </h4>
                     </div>
+                </div>
 
-                </h4>
-            </div>
-        </div>
-    </mat-card>
+            </mat-card>
+        </ng-container>
+    </div>
+
 </mat-card>
 
 <mat-card class="custom-mat-card">
@@ -37,7 +39,7 @@
                             <a class="flex-container small-icon">
                                 No search results found for "{{i}}"
                             </a>
-                        
+
                         </div>
                     </div>
                 </div>
@@ -93,7 +95,8 @@
                         <p>
                             <span [innerHTML]="highlightSearchText(StudentItem[0].category)"></span>
                         </p>
-                        <p>Academic Year: <span [innerHTML]="highlightSearchText(StudentItem[0].year | date:'yyyy')"></span>
+                        <p>Academic Year: <span
+                                [innerHTML]="highlightSearchText(StudentItem[0].year | date:'yyyy')"></span>
                         </p>
                         <a *ngIf="StudentItem[3].length>0">
                             <p>Keywords:
