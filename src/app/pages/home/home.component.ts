@@ -66,8 +66,6 @@ export class HomeComponent implements OnInit {
   }
   async ngOnInit(): Promise<void> {
     await this.getAllProject();
-    // this.getStudentforeachProject(idProject)
-    // this.getStudent();
     await this.getDisplayedStudents();
     this.route.queryParams.subscribe(params => {
       if (params['refresh']) {
@@ -78,48 +76,43 @@ export class HomeComponent implements OnInit {
 
   advsearch_list: any[] = []
   delete_word(text: any) {
-    this.advsearch_list.pop()
+    this.advsearch_list=this.advsearch_list.filter(deltext=>deltext!==text)
     if (this.advsearch_list.length == 0) {
+      this.forgetstudent=[]
+      this.getAllProject()
       this.isSearchClicked = false
     }
-    // this.searchQuery=''
+    this.filteredStudentArray =[]
+    this.funcreturn()
 
   }
-  onSubmit(): void {
-    this.isSearchClicked = true;
-    var setword = {
-      "word": this.searchQuery,
-      "search": false
-    }
-    this.advsearch_list.push(setword)
-    if (this.searchQuery && this.searchQuery.trim() !== '') {
-      // ตรวจสอบว่ามีการค้นหาหรือไม่
 
+  async funcreturn(){
+    for(let item of await this.advsearch_list){
       var x = this.forgetstudent.filter((project: any) => {
         return (
-          (project[0].en_title && project[0].en_title.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[0].th_title && project[0].th_title.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[0].year && project[0].year.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[0].url && project[0].url.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[0].category && project[0].category.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
-          (project[1]?.some((student: any) => student.en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase()))) ||
+          (project[0].en_title && project[0].en_title.toLowerCase().includes(item.toLowerCase())) ||
+          (project[0].th_title && project[0].th_title.toLowerCase().includes(item.toLowerCase())) ||
+          (project[0].year && project[0].year.toLowerCase().includes(item.toLowerCase())) ||
+          (project[0].url && project[0].url.toLowerCase().includes(item.toLowerCase())) ||
+          (project[0].category && project[0].category.toLowerCase().includes(item.toLowerCase())) ||
+          (project[1]?.some((student: any) => student.en_first_name.toLowerCase().includes(item.toLowerCase()))) ||
 
-          (String(project[1]?.[0]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[1]?.[1]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[1]?.[2]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[1]?.[3]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
-          (String(project[1]?.[4]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
+          (String(project[1]?.[0]?.idstudent).includes(item.toLowerCase())) ||
+          (String(project[1]?.[1]?.idstudent).includes(item.toLowerCase())) ||
+          (String(project[1]?.[2]?.idstudent).includes(item.toLowerCase())) ||
+          (String(project[1]?.[3]?.idstudent).includes(item.toLowerCase())) ||
+          (String(project[1]?.[4]?.idstudent).includes(item.toLowerCase())) ||
 
-          (project[2]?.some((advisor: any) => advisor.ad_en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase()))) ||
-          (project[2]?.some((advisor: any) => advisor.ad_en_last_name.toLowerCase().includes(this.searchQuery.toLowerCase()))) ||
-          (project[3]?.some((keyword: any) => keyword.keyword.toLowerCase().includes(this.searchQuery.toLowerCase())))
+          (project[2]?.some((advisor: any) => advisor.ad_en_first_name.toLowerCase().includes(item.toLowerCase()))) ||
+          (project[2]?.some((advisor: any) => advisor.ad_en_last_name.toLowerCase().includes(item.toLowerCase()))) ||
+          (project[3]?.some((keyword: any) => keyword.keyword.toLowerCase().includes(item.toLowerCase())))
         );
       });
       for (let i of x) {
         this.filteredStudentArray.push(i)
         this.filteredStudentArray = Array.from(new Set(this.filteredStudentArray));
       }
-
       // คำนวณหน้าและแสดงผลลัพธ์
       this.totalPages = Math.ceil(this.filteredStudentArray.length / this.pageSize);
       this.currentPage = 1;
@@ -128,6 +121,18 @@ export class HomeComponent implements OnInit {
 
       // ตรวจสอบว่ามีผลลัพธ์การค้นหาหรือไม่
       this.noSearchResultsFound = this.filteredStudentArray.length === 0;
+    }
+    
+
+  }
+  async onSubmit(): Promise<void> {
+    this.isSearchClicked = true;
+    
+    if (this.searchQuery && this.searchQuery.trim() !== '') {
+      await this.advsearch_list.push(String(this.searchQuery))
+      await this.funcreturn()
+
+      
     } else {
       this.searchResults = [];
       this.searchResultKeyword = '';
