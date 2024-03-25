@@ -6,7 +6,6 @@
         <button (click)="onSubmit()" class="search-button">Search</button>
     </div>
 
-
     <mat-card class="custom-card mt-2 text-start" *ngIf="isSearchClicked">
         <div class="search-results">
             <div class="centered-content m-1">
@@ -35,11 +34,10 @@
                 <div class="search-results">
                     <div class="centered-content mt-3 m-2" style="color: rgb(255, 0, 0);">
                         <div class="" *ngFor="let i of advsearch_list">
-                            <div class="" *ngIf="i.search == false"></div>
                             <a class="flex-container small-icon">
-                                No search results found for "{{i.word}}"
+                                No search results found for "{{i}}"
                             </a>
-
+                        
                         </div>
                     </div>
                 </div>
@@ -95,7 +93,8 @@
                         <p>
                             <span [innerHTML]="highlightSearchText(StudentItem[0].category)"></span>
                         </p>
-                        <p>Academic Year: {{ StudentItem[0].year | date:'yyyy' }}</p>
+                        <p>Academic Year: <span [innerHTML]="highlightSearchText(StudentItem[0].year | date:'yyyy')"></span>
+                        </p>
                         <a *ngIf="StudentItem[3].length>0">
                             <p>Keywords:
                                 <span *ngFor="let keywords of StudentItem[3]; let i = index">
