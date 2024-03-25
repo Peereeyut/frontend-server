@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
-import { Pipe, PipeTransform } from '@angular/core';
-import { filter } from 'rxjs';
+
 
 const ROWS_HEIGHT: { [id: number]: number } = { 1: 400, 3: 335, 4: 350 };
 
@@ -134,12 +133,13 @@ export class HomeComponent implements OnInit {
 
       
     } else {
-      this.searchResults = [];
-      this.searchResultKeyword = '';
+      this.searchResults =await [];
+      this.searchResultKeyword = await '';
     }
     this.searchQuery = ''
     // เรียกใช้งานฟังก์ชัน highlightSearchText() เมื่อมีการค้นหา
     this.highlightSearchText();
+    this.highlightsearchtext();
 
 
   }
@@ -235,9 +235,7 @@ export class HomeComponent implements OnInit {
     // console.log('Previous page data:', previousPageData);
   }
 
-
-
-  highlightSearchText(text?: any): any {
+  highlightsearchtext(text?:any):any{
     if (!text) {
       // If no text is provided, return an empty string or null
       return '';
@@ -248,6 +246,20 @@ export class HomeComponent implements OnInit {
       text = text.toString();
     }
     return text.replace(new RegExp(query, 'gi'), (match: string) => { // Specify the type of 'match'
+      return '<mark>' + match + '</mark>';
+    }) + ' ';
+  }
+
+  highlightSearchText(text?: any): any {
+    if (!text) {
+      // If no text is provided, return an empty string or null
+      return '';
+    }
+    var searchTerms = this.advsearch_list.map(term => term.toString().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+    searchTerms += '|' + this.searchQuery.toString().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(searchTerms, 'gi');
+    const searchText = text.toString();
+    return searchText.replace(regex, (match: string) => {
       return '<mark>' + match + '</mark>';
     }) + ' ';
 
@@ -284,6 +296,17 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  onSearchInputChange() {
+    this.highlightsearchtext();
+
+    if (this.searchQuery.trim() !== '') {
+      this.searchResults = this.forgetstudent.filter(([project, students]) => {
+        return project.en_title.toLowerCase().includes(this.searchQuery.toLowerCase());
+      });
+    } else {
+      this.searchResults = [];
+    }
+  }
 
   sortByDate(): void {
     if (!this.sortByDateClicked) {
