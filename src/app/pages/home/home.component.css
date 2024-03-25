@@ -107,6 +107,8 @@
   align-items: center;
   justify-content: center;
   display: inline-block;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .customAl-card {
   padding: auto;
