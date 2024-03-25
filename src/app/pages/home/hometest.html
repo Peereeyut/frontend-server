@@ -7,21 +7,20 @@
     </div>
 
 
-    <div *ngIf="isSearchClicked">
-        <mat-card class="custom-card mt-2 text-start" *ngFor="let i of advsearch_list">
-            <div class="search-results">
-                <div class="centered-content m-1">
-                    <h4 class="flex-container small-icon">
-                        <div >
-                            <span>{{ i.word }} </span> &nbsp;&nbsp;
-                            <b><a (click)="delete_word(i)"> × </a></b>
-                            <br>
-                        </div>
-                    </h4>
-                </div>
+    <mat-card class="custom-card mt-2 text-start" *ngIf="isSearchClicked">
+        <div class="search-results">
+            <div class="centered-content m-1">
+                <h4 class="flex-container small-icon">
+                    <div *ngFor="let i of advsearch_list">
+                        <span>{{ i }} </span> &nbsp;&nbsp;
+                        <b><a (click)="delete_word(i)"> × </a></b>
+                        <br>
+                    </div>
+
+                </h4>
             </div>
-        </mat-card>
-    </div>
+        </div>
+    </mat-card>
 </mat-card>
 
 <mat-card class="custom-mat-card">
