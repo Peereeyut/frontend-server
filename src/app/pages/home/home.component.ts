@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Pipe, PipeTransform } from '@angular/core';
+import { filter } from 'rxjs';
 
 const ROWS_HEIGHT: { [id: number]: number } = { 1: 400, 3: 335, 4: 350 };
 
@@ -63,14 +64,38 @@ export class HomeComponent implements OnInit {
     //   this.getAllProject();
     // });
   }
+  async ngOnInit(): Promise<void> {
+    await this.getAllProject();
+    // this.getStudentforeachProject(idProject)
+    // this.getStudent();
+    await this.getDisplayedStudents();
+    this.route.queryParams.subscribe(params => {
+      if (params['refresh']) {
+        // Refresh logic or function call goes here
+      }
+    });
+  }
 
+  advsearch_list: any[] = []
+  delete_word(text: any) {
+    this.advsearch_list.pop()
+    if (this.advsearch_list.length == 0) {
+      this.isSearchClicked = false
+    }
+    // this.searchQuery=''
+
+  }
   onSubmit(): void {
     this.isSearchClicked = true;
+    var setword = {
+      "word": this.searchQuery,
+      "search": false
+    }
+    this.advsearch_list.push(setword)
     if (this.searchQuery && this.searchQuery.trim() !== '') {
       // ตรวจสอบว่ามีการค้นหาหรือไม่
-      this.filteredStudentArray = this.forgetstudent.filter((project: any) => {
 
-
+      var x = this.forgetstudent.filter((project: any) => {
         return (
           (project[0].en_title && project[0].en_title.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
           (project[0].th_title && project[0].th_title.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
@@ -78,7 +103,7 @@ export class HomeComponent implements OnInit {
           (project[0].url && project[0].url.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
           (project[0].category && project[0].category.toLowerCase().includes(this.searchQuery.toLowerCase())) ||
           (project[1]?.some((student: any) => student.en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase()))) ||
-          
+
           (String(project[1]?.[0]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[1]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
           (String(project[1]?.[2]?.idstudent).includes(this.searchQuery.toLowerCase())) ||
@@ -87,9 +112,13 @@ export class HomeComponent implements OnInit {
 
           (project[2]?.some((advisor: any) => advisor.ad_en_first_name.toLowerCase().includes(this.searchQuery.toLowerCase()))) ||
           (project[2]?.some((advisor: any) => advisor.ad_en_last_name.toLowerCase().includes(this.searchQuery.toLowerCase()))) ||
-          (project[3]?.some((keyword: any) => keyword.keyword.toLowerCase().includes(this.searchQuery.toLowerCase()))) 
-            );
+          (project[3]?.some((keyword: any) => keyword.keyword.toLowerCase().includes(this.searchQuery.toLowerCase())))
+        );
       });
+      for (let i of x) {
+        this.filteredStudentArray.push(i)
+        this.filteredStudentArray = Array.from(new Set(this.filteredStudentArray));
+      }
 
       // คำนวณหน้าและแสดงผลลัพธ์
       this.totalPages = Math.ceil(this.filteredStudentArray.length / this.pageSize);
@@ -103,9 +132,11 @@ export class HomeComponent implements OnInit {
       this.searchResults = [];
       this.searchResultKeyword = '';
     }
-
+    this.searchQuery = ''
     // เรียกใช้งานฟังก์ชัน highlightSearchText() เมื่อมีการค้นหา
     this.highlightSearchText();
+
+
   }
 
   cancelSearch(): void {
@@ -132,17 +163,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-  async ngOnInit(): Promise<void> {
-    await this.getAllProject();
-    // this.getStudentforeachProject(idProject)
-    // this.getStudent();
-    await this.getDisplayedStudents();
-    this.route.queryParams.subscribe(params => {
-      if (params['refresh']) {
-        // Refresh logic or function call goes here
-      }
-    });
-  }
+
 
   onShowCategory(newCategory: string): void {
     this.selectedCategory = newCategory;
@@ -162,7 +183,7 @@ export class HomeComponent implements OnInit {
             this.http.get(this.api + "/rmProject/keyword/:" + i.idProject).subscribe(async (reskeyword: any) => {
 
               // console.log(resadvisor.data)
-              var setarray= await [i, resstudent.data, resadvisor.data, reskeyword.data];
+              var setarray = await [i, resstudent.data, resadvisor.data, reskeyword.data];
               //[{project}, [student:array], [advisor:array], [keywords:array]]
               // console.log(await settest)
               // var setarray = await [i, resstudent.data];
@@ -224,26 +245,10 @@ export class HomeComponent implements OnInit {
     return text.replace(new RegExp(query, 'gi'), (match: string) => { // Specify the type of 'match'
       return '<mark>' + match + '</mark>';
     }) + ' ';
+
+
   }
 
-
-
-
-  onSearchInputChange() {
-    // เรียกใช้งาน highlightSearchText() เมื่อมีการเปลี่ยนแปลงในการค้นหา
-    this.highlightSearchText();
-
-    if (this.searchQuery.trim() !== '') {
-      // นี่คือส่วนที่คุณต้องทำการค้นหาข้อมูลของคุณ (เช่นจาก API) และกำหนดค่าให้กับ this.searchResults
-      // ตัวอย่าง: ค้นหาจากรายการ Students
-      // console.log(this.searchQuery)
-      this.searchResults = this.forgetstudent.filter(([project, students]) => {
-        return project.en_title.toLowerCase().includes(this.searchQuery.toLowerCase());
-      });
-    } else {
-      this.searchResults = [];
-    }
-  }
 
   sortByTitle(): void {
     if (!this.sortByTitleClicked) {
