@@ -131,6 +131,11 @@
   align-items: center;
 }
 
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
 
 .highlight {
   background-color: yellow; /* You can adjust the background color as needed */
